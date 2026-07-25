@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://c8xulrl7uge1t"]
 
+[ext_resource type="Script" uid="uid://cjj350ujr7dhn" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://cbfrdao1tk6fl" path="res://HUD/HUD.tscn" id="2_onrkg"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
 [node name="Player" type="CharacterBody3D" unique_id=536236575]
+script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=353290227]
 shape = SubResource("CapsuleShape3D_sh265")
@@ -27,59 +31,77 @@ omni_range = 8.021006
 [node name="fBeam" type="RayCast3D" parent="beams" unique_id=706185195]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.5)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="fUbeam" type="RayCast3D" parent="beams" unique_id=416733399]
 transform = Transform3D(1, 0, 0, 0, -0.70710677, -0.70710677, 0, 0.70710677, -0.70710677, 0, 0, -0.5)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="fDbeam" type="RayCast3D" parent="beams" unique_id=1472659103]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, -0.5)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="bBeam" type="RayCast3D" parent="beams" unique_id=326293280]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0.5)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="bUbeam" type="RayCast3D" parent="beams" unique_id=535805320]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.5)
 target_position = Vector3(0, -5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="bDbeam" type="RayCast3D" parent="beams" unique_id=198358423]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0.5)
 target_position = Vector3(0, 0, 5.5)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="rBeam" type="RayCast3D" parent="beams" unique_id=187271664]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5, 0, 0)
 target_position = Vector3(5, 0, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="rUbeam" type="RayCast3D" parent="beams" unique_id=334421504]
 transform = Transform3D(1.0552863e-07, -0.70710677, 0.70710677, 6.181724e-08, -0.70710677, -0.70710677, 1, 1.183314e-07, -3.090862e-08, 0.5, 0, 0)
 target_position = Vector3(0, -5.5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="rDbeam" type="RayCast3D" parent="beams" unique_id=1183215832]
 transform = Transform3D(-4.371139e-08, -0.70710677, -0.70710677, 0, 0.70710677, -0.70710677, 1, -3.090862e-08, -3.090862e-08, 0.5, 0, 0)
 target_position = Vector3(0, -5.5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="lBeam" type="RayCast3D" parent="beams" unique_id=291245817]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.5, 0, 0)
 target_position = Vector3(-5, 0, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="lUbeam" type="RayCast3D" parent="beams" unique_id=1934270078]
 transform = Transform3D(1.0552863e-07, 0.70710677, -0.70710677, -6.181724e-08, -0.70710677, -0.70710677, -1, 1.183314e-07, -3.090862e-08, -0.5, 0, 0)
 target_position = Vector3(0, -5.5, 0)
+collision_mask = 2
 collide_with_areas = true
 
 [node name="lDbeam" type="RayCast3D" parent="beams" unique_id=298500273]
 transform = Transform3D(-4.371139e-08, 0.70710677, 0.70710677, 0, 0.70710677, -0.70710677, -1, -3.090862e-08, -3.090862e-08, -0.5, 0, 0)
 target_position = Vector3(0, -5.5, 0)
+collision_mask = 2
 collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887927120]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=833228539]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1430889925 instance=ExtResource("2_onrkg")]

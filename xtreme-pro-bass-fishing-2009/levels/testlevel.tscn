@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bxqhfld7n73xh"]
+
+[ext_resource type="PackedScene" uid="uid://cg1orqq13i5tg" path="res://gamemanager/game_manager.tscn" id="1_uu6m2"]
+[ext_resource type="PackedScene" uid="uid://c8xulrl7uge1t" path="res://player/player.tscn" id="2_hb8io"]
+[ext_resource type="PackedScene" uid="uid://wchuip8v5dhg" path="res://systems/gibble.tscn" id="3_hb8io"]
+[ext_resource type="Script" uid="uid://vs76qiamewt" path="res://scripts/prop_interact.gd" id="4_t3dhk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uu6m2"]
+
+[sub_resource type="Sky" id="Sky_hb8io"]
+sky_material = SubResource("ProceduralSkyMaterial_uu6m2")
+
+[sub_resource type="Environment" id="Environment_t3dhk"]
+background_mode = 2
+sky = SubResource("Sky_hb8io")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8j3fl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0kak"]
+
+[node name="World" type="Node3D" unique_id=474530179]
+
+[node name="GameManager" parent="." unique_id=1159081308 instance=ExtResource("1_uu6m2")]
+
+[node name="Player" parent="GameManager" unique_id=536236575 instance=ExtResource("2_hb8io")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2094203669]
+environment = SubResource("Environment_t3dhk")
+
+[node name="gibblezone" type="Node3D" parent="." unique_id=163884333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7260265)
+
+[node name="gibble" parent="gibblezone" unique_id=19478470 instance=ExtResource("3_hb8io")]
+
+[node name="gibble2" parent="gibblezone" unique_id=623202429 instance=ExtResource("3_hb8io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9326673, 0, -2.642898)
+
+[node name="gibble5" parent="gibblezone" unique_id=1063446269 instance=ExtResource("3_hb8io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033960342, 0, -2.642898)
+
+[node name="gibble3" parent="gibblezone" unique_id=2006609805 instance=ExtResource("3_hb8io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.828888, 0, -2.7987454)
+
+[node name="gibble4" parent="gibblezone" unique_id=989403755 instance=ExtResource("3_hb8io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.679473)
+
+[node name="interactables" type="Node3D" parent="." unique_id=1474918726]
+
+[node name="props" type="Node3D" parent="interactables" unique_id=354668190]
+
+[node name="testbox" type="MeshInstance3D" parent="interactables/props" unique_id=132568375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2821894, 0, -2.0898473)
+mesh = SubResource("BoxMesh_8j3fl")
+
+[node name="Collision" type="Area3D" parent="interactables/props/testbox" unique_id=484947295]
+script = ExtResource("4_t3dhk")
+metadata/Dialogue = "start"
+metadata/Click_Distance = 10
+metadata/Script = "res://Dialogue/writing/test.dialogue"
+metadata/Balloon = "res://Dialogue/Talking Balloon/balloon.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactables/props/testbox/Collision" unique_id=1905159642]
+shape = SubResource("BoxShape3D_l0kak")
+
+[node name="characters" type="Node3D" parent="." unique_id=1820371277]
+
+[connection signal="input_event" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_input_event"]
