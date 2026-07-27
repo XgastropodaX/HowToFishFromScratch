@@ -1,4 +1,5 @@
 extends Control
+
 @onready var objective: RichTextLabel = $MarginContainer/Play
 
 

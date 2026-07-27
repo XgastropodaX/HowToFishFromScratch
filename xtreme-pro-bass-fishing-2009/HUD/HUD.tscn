@@ -83,3 +83,4 @@ text = "fuck that fish baby"
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/History" to="." method="_on_history_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Catalogue" to="." method="_on_catalogue_pressed"]
+[connection signal="finished" from="MarginContainer/Play" to="." method="_on_play_finished"]

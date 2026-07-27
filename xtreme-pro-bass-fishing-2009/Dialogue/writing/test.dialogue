@@ -9,3 +9,10 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+
+~ cutTest
+Cutscenes now work in the game.
+
+Fisher: LETS FUCKING GO.
+=> END

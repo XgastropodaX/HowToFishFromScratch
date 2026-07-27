@@ -1,6 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+##Attempt at making a chat history
+
 # Signal sending back to Game Manager
 signal dialogue_change_signal
 signal exterior_change_signal
@@ -131,7 +133,7 @@ func start(with_dialogue_resource: DialogueResource = null, title: String = "", 
 
 
 ## Apply any changes to the balloon given a new [DialogueLine].
-func apply_dialogue_line() -> void:
+func apply_dialogue_line() -> void:	
 	mutation_cooldown.stop()
 
 	progress.hide()
