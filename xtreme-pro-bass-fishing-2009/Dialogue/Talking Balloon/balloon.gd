@@ -51,7 +51,6 @@ var dialogue_line: DialogueLine:
 		else:
 			# The dialogue has finished so close the balloon
 			if owner == null:
-				print(next_dialogue)
 				dialogue_change_signal.emit(next_dialogue)
 				queue_free()
 			else:
@@ -64,7 +63,6 @@ var mutation_cooldown: Timer = Timer.new()
 
 ## Gives the next dialogue after this one ends
 @onready var next_dialogue: String
-
 
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
@@ -81,6 +79,11 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
+
+func storeLine ():
+	print(dialogue_line.character)
+	print(":")
+	
 
 func _ready() -> void:
 	balloon.hide()
@@ -140,7 +143,7 @@ func apply_dialogue_line() -> void:
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
-
+	
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
 
@@ -153,6 +156,7 @@ func apply_dialogue_line() -> void:
 	# Show our balloon
 	balloon.show()
 	will_hide_balloon = false
+	
 
 	dialogue_label.show()
 	if not dialogue_line.text.is_empty():
@@ -180,6 +184,7 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
+	storeLine()
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
