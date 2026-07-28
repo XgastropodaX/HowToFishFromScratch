@@ -80,11 +80,6 @@ var mutation_cooldown: Timer = Timer.new()
 @onready var progress: Polygon2D = %Progress
 
 
-func storeLine ():
-	print(dialogue_line.character)
-	print(":")
-	
-
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
@@ -184,8 +179,16 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	storeLine()
+	storeLine(dialogue_line.character, dialogue_line.text)
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
+
+var history: Array = []
+
+func storeLine(character: String, text: String ):
+	history.append({"character": character, "text": text})
+	for char in history:
+		print(char["character"],":",char["text"] )
+	
 
 
 #region Signals

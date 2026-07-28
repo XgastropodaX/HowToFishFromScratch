@@ -44,7 +44,6 @@ signal paused_typing(duration: float)
 
 var _already_mutated_indices: PackedInt32Array = []
 
-var my_dict = {}
 
 ## The current line of dialogue.
 var dialogue_line:
