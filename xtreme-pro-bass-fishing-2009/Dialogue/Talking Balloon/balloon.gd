@@ -187,8 +187,9 @@ var history: Array = []
 func storeLine(character: String, text: String ):
 	history.append({"character": character, "text": text})
 	for char in history:
-		print(char["character"],":",char["text"] )
-	
+		if not character == "":
+			print(char["character"],":",char["text"] )
+		else: print(char["text"] )
 
 
 #region Signals

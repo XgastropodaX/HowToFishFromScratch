@@ -51,7 +51,6 @@ var dialogue_line:
 		if value != dialogue_line:
 			dialogue_line = value
 			_update_text()
-			print(dialogue_line.text)
 	get:
 		return dialogue_line
 
