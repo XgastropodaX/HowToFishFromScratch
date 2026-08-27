@@ -3,6 +3,7 @@ extends Control
 @onready var objective: RichTextLabel = $MarginContainer/Play
 
 
+
 func _on_settings_pressed() -> void:
 	print("settings")
 

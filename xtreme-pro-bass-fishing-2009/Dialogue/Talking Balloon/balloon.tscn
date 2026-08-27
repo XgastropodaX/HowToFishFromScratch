@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bsgfhmdgvcvnp" path="res://Dialogue/Talking Balloon/balloon.gd" id="1_t7f7y"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hcil3"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_lmkqk"]
+[ext_resource type="Script" uid="uid://b1k4krogjvtys" path="res://Dialogue/Talking Balloon/rich_text_label.gd" id="4_t7f7y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -196,6 +197,12 @@ text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=974112173]
+offset_right = 450.0
+offset_bottom = 304.0
+bbcode_enabled = true
+script = ExtResource("4_t7f7y")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
