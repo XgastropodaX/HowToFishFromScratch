@@ -1,10 +1,11 @@
 ~ start
-test test hahah
+
+[wave amp=50.0 freq=5.0 connected=1]test test hahah[/wave]
 
 hello?
 
-Fisher: [[Hi|Hello|Howdy]], this is some dialogue.
-Fisher: Here are some choices.
+Lovely: [[Hi|Hello|Howdy]], this is some dialogue.
+Notfisher: Here are some choices.
 - First one
 	Fisher: You picked the first one.
 - Second one

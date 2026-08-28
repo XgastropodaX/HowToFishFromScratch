@@ -13,6 +13,7 @@ func show_history() -> void:
 			output_text += "%s: %s\n" % [dict["character"], dict["text"]]
 	rich_label.text = output_text
 
+
 func _on_settings_pressed() -> void:
 	print("settings")
 

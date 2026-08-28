@@ -140,7 +140,11 @@ func apply_dialogue_line() -> void:
 	balloon.grab_focus()
 	
 	character_label.visible = not dialogue_line.character.is_empty()
-	character_label.text = tr(dialogue_line.character, "dialogue")
+	match tr(dialogue_line.character):
+		_:
+			character_label.text = tr(dialogue_line.character, "dialogue")
+		"Lovely":
+			character_label.text = "[color=#ff4000]" + tr(dialogue_line.character, "dialogue") + "[/color]"
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -185,7 +189,6 @@ func next(next_id: String) -> void:
 
 func storeLine(character: String, text: String ):
 	History.history.append({"character": character, "text": text})
-
 
 
 #region Signals
