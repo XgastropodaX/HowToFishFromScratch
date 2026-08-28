@@ -180,21 +180,12 @@ func apply_dialogue_line() -> void:
 ## Go to the next line
 func next(next_id: String) -> void:
 	storeLine(dialogue_line.character, dialogue_line.text)
-	show_history()
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
 
-@onready var history: Array = []
 
 func storeLine(character: String, text: String ):
-	history.append({"character": character, "text": text})
+	History.history.append({"character": character, "text": text})
 
-@onready var rich_label: RichTextLabel = $RichTextLabel
-
-func show_history() -> void:
-	var output_text = ""
-	for dict in history:
-		output_text += "%s: %d\n" % [dict["character"], dict["text"]]
-	rich_label.text = output_text
 
 
 #region Signals

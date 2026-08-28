@@ -34,7 +34,6 @@ var movespeed = 0.75
 # Move Forward to next box
 ################################################################################
 func moveForward():
-	print("helloworld")
 	if $beams/fBeam.is_colliding():
 		var gibble = forward.get_collider()
 		if not gibble.get_meta("Interaction") == null:

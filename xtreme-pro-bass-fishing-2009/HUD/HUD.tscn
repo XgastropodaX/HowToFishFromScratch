@@ -55,6 +55,7 @@ texture_normal = ExtResource("2_aa5tu")
 
 [node name="History" type="TextureButton" parent="PanelContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=740246859]
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("3_njmlf")
 
 [node name="Catalogue" type="TextureButton" parent="PanelContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1067379664]
@@ -80,7 +81,17 @@ layout_mode = 2
 mouse_filter = 2
 text = "fuck that fish baby"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=793909297]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 512.0
+offset_bottom = 325.0
+mouse_filter = 2
+bbcode_enabled = true
+
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/History" to="." method="_on_history_pressed"]
+[connection signal="toggled" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/History" to="." method="_on_history_toggled"]
 [connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Catalogue" to="." method="_on_catalogue_pressed"]
 [connection signal="finished" from="MarginContainer/Play" to="." method="_on_play_finished"]
