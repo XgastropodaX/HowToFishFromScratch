@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ctyate67pqnt0"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgt1wrgft84m3" path="res://lilgoji.tres" id="1_ybo85"]
+
+[node name="obj_1_gesila" type="MeshInstance3D" unique_id=1532485220]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = ExtResource("1_ybo85")
