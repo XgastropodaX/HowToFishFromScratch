@@ -141,10 +141,14 @@ func apply_dialogue_line() -> void:
 	
 	character_label.visible = not dialogue_line.character.is_empty()
 	match tr(dialogue_line.character):
-		_:
-			character_label.text = tr(dialogue_line.character, "dialogue")
+		"Fisher":
+			character_label.text = "[color=#228B22]" + tr(dialogue_line.character, "dialogue") + "[/color]"
 		"Lovely":
 			character_label.text = "[color=#ff4000]" + tr(dialogue_line.character, "dialogue") + "[/color]"
+		"Z-tra":
+			character_label.text = "[color=#6A66D9]" + tr(dialogue_line.character, "dialogue") + "[/color]"
+		_:
+			character_label.text = tr(dialogue_line.character, "dialogue")
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -188,7 +192,7 @@ func next(next_id: String) -> void:
 
 
 func storeLine(character: String, text: String ):
-	History.history.append({"character": character, "text": text})
+	GameManager.history.append({"character": character, "text": text})
 
 
 #region Signals

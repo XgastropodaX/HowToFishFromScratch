@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://cbfrdao1tk6fl"]
 
 [ext_resource type="Script" uid="uid://cku8lvan56sy1" path="res://HUD/hud.gd" id="1_aa5tu"]
-[ext_resource type="Texture2D" uid="uid://ga1yckuvrj07" path="res://assets/ui/fihUI.png" id="1_amwvk"]
 [ext_resource type="Texture2D" uid="uid://bxt0ltjl0y5e" path="res://assets/ui/icons/setting.png" id="2_aa5tu"]
+[ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="2_amwvk"]
 [ext_resource type="Texture2D" uid="uid://bm5ny7bity5hm" path="res://assets/ui/icons/HISTORY.png" id="3_njmlf"]
-[ext_resource type="Texture2D" uid="uid://d1e1u438m3wca" path="res://assets/ui/icons/catalogue.png" id="4_lkt0t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5cd"]
 
@@ -23,6 +22,7 @@ script = ExtResource("1_aa5tu")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1719323649]
 clip_contents = true
+custom_minimum_size = Vector2(400, 0)
 layout_direction = 4
 layout_mode = 1
 anchors_preset = 15
@@ -33,34 +33,38 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_t1yhm")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1937685702]
+[node name="Frame" type="TextureRect" parent="PanelContainer" unique_id=1937685702]
 layout_mode = 2
-texture = ExtResource("1_amwvk")
+mouse_filter = 2
+texture = ExtResource("2_amwvk")
+expand_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TextureRect" unique_id=634711831]
+[node name="MenuButtons" type="VBoxContainer" parent="PanelContainer/Frame" unique_id=634711831]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -108.0
-offset_right = 336.0
+offset_left = -123.0
+offset_top = -67.0
+offset_right = 92.0
+offset_bottom = 41.0
+grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.5, 0.5)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TextureRect/VBoxContainer" unique_id=1313606129]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Frame/MenuButtons" unique_id=1313606129]
 layout_mode = 2
 
-[node name="Settings" type="TextureButton" parent="PanelContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1696511627]
-layout_mode = 2
-texture_normal = ExtResource("2_aa5tu")
-
-[node name="History" type="TextureButton" parent="PanelContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=740246859]
+[node name="History" type="TextureButton" parent="PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=740246859]
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("3_njmlf")
 
-[node name="Catalogue" type="TextureButton" parent="PanelContainer/TextureRect/VBoxContainer/HBoxContainer" unique_id=1067379664]
+[node name="Settings" type="TextureButton" parent="PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=1696511627]
 layout_mode = 2
-texture_normal = ExtResource("4_lkt0t")
+texture_normal = ExtResource("2_aa5tu")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1267440786]
 layout_mode = 1
@@ -76,11 +80,6 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Play" type="RichTextLabel" parent="MarginContainer" unique_id=1831654809]
-layout_mode = 2
-mouse_filter = 2
-text = "fuck that fish baby"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=793909297]
 layout_mode = 0
 offset_left = 13.0
@@ -90,8 +89,6 @@ offset_bottom = 325.0
 mouse_filter = 2
 bbcode_enabled = true
 
-[connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/History" to="." method="_on_history_pressed"]
-[connection signal="toggled" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/History" to="." method="_on_history_toggled"]
-[connection signal="pressed" from="PanelContainer/TextureRect/VBoxContainer/HBoxContainer/Catalogue" to="." method="_on_catalogue_pressed"]
-[connection signal="finished" from="MarginContainer/Play" to="." method="_on_play_finished"]
+[connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_pressed"]
+[connection signal="toggled" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_toggled"]
+[connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/Settings" to="." method="_on_settings_pressed"]

@@ -43,7 +43,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.828888, 0, -2.7987454)
 
 [node name="gibble4" parent="gibblezone" unique_id=989403755 instance=ExtResource("3_hb8io")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.679473)
-metadata/Text = "cutTest"
+metadata/Interaction = 7.0
+metadata/Resource = "testgibble"
+metadata/Text = ""
 
 [node name="interactables" type="Node3D" parent="." unique_id=1474918726]
 

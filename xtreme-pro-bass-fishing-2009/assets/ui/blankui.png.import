@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ga1yckuvrj07"
-path="res://.godot/imported/fihUI.png-25831b77c94049dfbbe83ede7c271660.ctex"
+uid="uid://dy7pq3xm4a00b"
+path="res://.godot/imported/blankui.png-4d59898752443d80f02e1607bd11f786.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/fihUI.png"
-dest_files=["res://.godot/imported/fihUI.png-25831b77c94049dfbbe83ede7c271660.ctex"]
+source_file="res://assets/ui/blankui.png"
+dest_files=["res://.godot/imported/blankui.png-4d59898752443d80f02e1607bd11f786.ctex"]
 
 [params]
 

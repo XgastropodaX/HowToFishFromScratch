@@ -237,34 +237,30 @@ func gibble_interaction(gibble,disable,directions):
 			6.0: #Animate Something!
 				game_manager.animation_player(gibble.get_meta("Resource"),gibble.get_meta("Text"),gibble.get_meta("Balloon"))
 			7.0: #Many At Once!
-				pass
-				#match gibble.get_meta("Resource"):
+				match gibble.get_meta("Resource"):
 					#####Chapter 1####
-					#"ch1A_heidi_1":
-						#match directions:
-							#"forward":
-								#turnLeft()
-								#await turnLeft()
-								#moveable = false
-							#"backward":
-								#turnRight()
-								#await turnRight()
-								#moveable = false
-							#"left":
-								#turnLeft()
-								#await turnLeft()
-								#turnLeft()
-								#await turnLeft()
-								#moveable = false
-							#"right":
-								#pass
-						#game_manager.animation_player("open_door","../Doors/Door16","")
-						#var balloon = load("res://dialogue/Talking Balloon/balloon.tscn")
-						#var script = load("res://dialogue/Script/chapter1_ship.dialogue")
-						#game_manager.dialogue(balloon,script,"heidi_cutscene",self)
-						#gibble.set_meta("Interaction",6.0)
-						#gibble.set_meta("Resource","open_door")
-						#gibble.set_meta("Text","../Doors/Door16")
+					"testgibble":
+						match directions:
+							"forward":
+								turnLeft()
+								await turnLeft()
+								moveable = false
+							"backward":
+								turnRight()
+								await turnRight()
+								moveable = false
+							"left":
+								turnLeft()
+								await turnLeft()
+								turnLeft()
+								await turnLeft()
+								moveable = false
+							"right":
+								pass
+						var balloon = load("res://dialogue/Talking Balloon/balloon.tscn")
+						var script = load("res://Dialogue/writing/test.dialogue")
+						game_manager.dialogue(balloon,script,"cutTest",self)
+						gibble.set_meta("Interaction",6.0)
 					#"ch1A_delia_1":
 						#match directions:
 							#"forward":

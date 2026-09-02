@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dkkb67cgp7fpg"]
+
+[node name="BagHead" type="Node3D" unique_id=889747555]
+
+[node name="Head" type="Node3D" parent="." unique_id=821335057]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1630737898]
+current = true

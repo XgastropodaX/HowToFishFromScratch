@@ -1,11 +1,30 @@
 [gd_scene format=3 uid="uid://c8xulrl7uge1t"]
 
 [ext_resource type="Script" uid="uid://cjj350ujr7dhn" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://ctegotfftoufv" path="res://player/sub_viewport_container.gd" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://cbfrdao1tk6fl" path="res://HUD/HUD.tscn" id="2_onrkg"]
+[ext_resource type="Shader" uid="uid://brwlksuu2atmt" path="res://shader/dotshader.gdshader" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjkh3"]
+shader = ExtResource("3_yw30f")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.25
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 2.0
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 12.0
+shader_parameter/dither_strength = 0.75
+shader_parameter/chrom_aberration = 4.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.95, 1.03, 0.9)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody3D" unique_id=536236575]
 script = ExtResource("1_4flbx")
@@ -19,12 +38,36 @@ mesh = SubResource("CapsuleMesh_4flbx")
 [node name="head" type="Node3D" parent="." unique_id=617455605]
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="head" unique_id=2068822376]
-remote_path = NodePath("../Camera3D")
+remote_path = NodePath("../SubViewportContainer/SubViewport/Camera3D")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="head" unique_id=1741417059]
 omni_range = 8.021006
 
-[node name="Camera3D" type="Camera3D" parent="head" unique_id=918183795]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="head" unique_id=1170177226]
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 871.0
+offset_bottom = 624.0
+script = ExtResource("2_g1dw6")
+
+[node name="SubViewport" type="SubViewport" parent="head/SubViewportContainer" unique_id=111907438]
+handle_input_locally = false
+audio_listener_enable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
+size = Vector2i(850, 600)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="head/SubViewportContainer/SubViewport" unique_id=1321700196]
+material = SubResource("ShaderMaterial_qjkh3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Camera3D" type="Camera3D" parent="head/SubViewportContainer/SubViewport" unique_id=918183795]
 
 [node name="beams" type="Node3D" parent="." unique_id=1867912977]
 
@@ -105,3 +148,5 @@ collide_with_areas = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=833228539]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1430889925 instance=ExtResource("2_onrkg")]
+
+[connection signal="gui_input" from="head/SubViewportContainer" to="head/SubViewportContainer" method="_on_gui_input"]

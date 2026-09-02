@@ -25,7 +25,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		#if get_tree().current_scene.name == "engine_room":
 			#destination = "res://levels/world.tscn"
 		#get_tree().change_scene_to_file(destination)
-		
+
+var history: Array = []	
 
 func _process(delta: float) -> void:
 	pass

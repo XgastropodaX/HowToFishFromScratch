@@ -5,14 +5,14 @@
 hello?
 
 Lovely: [[Hi|Hello|Howdy]], this is some dialogue.
-Notfisher: Here are some choices.
+Z-tra: Here are some choices.
 - First one
 	Fisher: You picked the first one.
 - Second one
 	Fisher: You picked the second one.
 - Start again => start
 - End the conversation => END
-Fisher: For more information see the online documentation.
+Jackson Breman: For more information see the online documentation.
 => END
 
 
