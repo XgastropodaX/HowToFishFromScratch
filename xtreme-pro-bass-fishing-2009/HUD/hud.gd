@@ -1,6 +1,9 @@
 extends Control
 
 @onready var rich_label: RichTextLabel = $RichTextLabel
+@onready var item_label: RichTextLabel = $PanelContainer/Frame/ItemLabel
+
+
 
 #what stores everything. not super efficent. 
 func show_history() -> void:

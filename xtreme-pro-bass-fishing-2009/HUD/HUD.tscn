@@ -66,6 +66,13 @@ texture_normal = ExtResource("3_njmlf")
 layout_mode = 2
 texture_normal = ExtResource("2_aa5tu")
 
+[node name="ItemLabel" type="RichTextLabel" parent="PanelContainer/Frame" unique_id=839359838]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 286.0
+offset_bottom = 57.0
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1267440786]
 layout_mode = 1
 anchors_preset = 7
@@ -88,6 +95,8 @@ offset_right = 512.0
 offset_bottom = 325.0
 mouse_filter = 2
 bbcode_enabled = true
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=213741173]
 
 [connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_pressed"]
 [connection signal="toggled" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_toggled"]

@@ -61,6 +61,7 @@ metadata/Dialogue = "start"
 metadata/Click_Distance = 10
 metadata/Script = "res://Dialogue/writing/test.dialogue"
 metadata/Balloon = "res://Dialogue/Talking Balloon/balloon.tscn"
+metadata/Name = "Gun"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactables/props/testbox/Collision" unique_id=1905159642]
 shape = SubResource("BoxShape3D_l0kak")
@@ -68,3 +69,4 @@ shape = SubResource("BoxShape3D_l0kak")
 [node name="characters" type="Node3D" parent="." unique_id=1820371277]
 
 [connection signal="input_event" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_input_event"]
+[connection signal="mouse_entered" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_mouse_entered"]

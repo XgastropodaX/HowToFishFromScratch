@@ -13,7 +13,7 @@ signal movement
 @onready var right = $beams/rBeam
 @onready var uright = $beams/rUbeam
 @onready var dright = $beams/rDbeam
-@onready var camera = $head/Camera3D
+@onready var camera = $head/SubViewportContainer/SubViewport/Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var special_light: OmniLight3D = $head/OmniLight3D
 @onready var hud: Control = $CanvasLayer/HUD

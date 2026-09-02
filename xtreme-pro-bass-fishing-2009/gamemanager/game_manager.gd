@@ -7,7 +7,7 @@ extends Node
 @onready var scene
 @onready var full_image: TextureRect
 @onready var dialogue_interactor
-
+@onready var item_name = ""
 
 func _ready():
 	pass
@@ -26,7 +26,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			#destination = "res://levels/world.tscn"
 		#get_tree().change_scene_to_file(destination)
 
+#Record the speaker's name and the text associated in a dictionary of arrays.
 var history: Array = []	
+#Records the name of the item from the metadata so it can be displayed in the hud
+
 
 func _process(delta: float) -> void:
 	pass

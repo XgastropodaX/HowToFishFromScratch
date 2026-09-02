@@ -6,6 +6,7 @@ extends Area3D
 @onready var player: CharacterBody3D = $"../../../../GameManager/Player"
 @onready var highlight = false
 
+
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')
 var materials: Array[StandardMaterial3D]
@@ -54,3 +55,9 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 		var SCRIPT = load(get_meta("Script"))
 		var DIALOGUE = get_meta("Dialogue")
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
+
+func show_item_name(str(get_meta("Name"))):
+	Hud.item_label = 
+func _on_mouse_entered() -> void:
+	var itmeget_meta("Name")
+	GameManager.item_name 
