@@ -15,27 +15,33 @@ sky = SubResource("Sky_4fdwm")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="World" type="Node3D" unique_id=351608296]
+[node name="World" type="CanvasLayer" unique_id=223140016]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1942652799]
+[node name="Node3D" type="Node3D" parent="." unique_id=1241305074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.745544, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=1942652799]
 environment = SubResource("Environment_bog7w")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1126245144]
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1126245144]
 transform = Transform3D(1, 0, 0, 0, 0.96675205, 0.25571576, 0, -0.25571576, 0.96675205, 0, 2.5048506, 4.431341)
+current = true
 
-[node name="Control" type="Control" parent="Camera3D" unique_id=818790620]
+[node name="Control" type="Control" parent="Node3D/Camera3D" unique_id=818790620]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Camera3D/Control" unique_id=1748722503]
+[node name="Label" type="Label" parent="Node3D/Camera3D/Control" unique_id=1748722503]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1470406634]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=1470406634]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Spatial" parent="." unique_id=17505224 instance=ExtResource("1_cqlan")]
+[node name="Spatial" parent="Node3D" unique_id=17505224 instance=ExtResource("1_cqlan")]
