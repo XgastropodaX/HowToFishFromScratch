@@ -96,8 +96,6 @@ offset_bottom = 325.0
 mouse_filter = 2
 bbcode_enabled = true
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=213741173]
-
 [connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_pressed"]
 [connection signal="toggled" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_toggled"]
 [connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/Settings" to="." method="_on_settings_pressed"]

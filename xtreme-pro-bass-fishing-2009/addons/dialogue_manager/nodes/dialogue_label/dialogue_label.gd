@@ -67,7 +67,7 @@ var _last_mutation_index: int = -1
 var _waiting_seconds: float = 0
 var _is_awaiting_mutation: bool = false
 var _is_skipping_mutations: bool = false
-
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 func _process(delta: float) -> void:
 	if _is_typing:
@@ -143,8 +143,10 @@ func _type_next(delta: float, seconds_needed: float) -> void:
 	if _last_wait_index != visible_characters and waiting_seconds > 0:
 		_last_wait_index = visible_characters
 		_waiting_seconds += waiting_seconds
+		audio_stream_player.stop()
 	else:
 		visible_characters += 1
+		if not audio_stream_player: audio_stream_player.play()
 		if visible_characters <= get_total_character_count():
 			spoke.emit(get_parsed_text()[visible_characters - 1], visible_characters - 1, _get_speed(visible_characters))
 		# See if there's time to type out some more in this frame

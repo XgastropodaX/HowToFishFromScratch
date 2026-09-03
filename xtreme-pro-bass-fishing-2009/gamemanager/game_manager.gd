@@ -50,6 +50,9 @@ func dialogue(balloon,script,text,interactable):
 	balloon_node.dialogue_change_signal.connect(dialogue_change)
 	balloon_node.exterior_change_signal.connect(exterior_change)
 
+#func dothething(thing) -> void:
+	#player.hud.item_label.text = thing
+
 func exterior_change(change):
 	pass
 	

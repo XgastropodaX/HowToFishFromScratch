@@ -21,7 +21,9 @@ func show_history() -> void:
 				output_text += "%s\n" % [dict["text"]]
 	
 
-
+func change_item_label(itemname) -> void:
+	print("gun")
+	item_label.text = itemname
 
 func _on_settings_pressed() -> void:
 	print("settings")

@@ -56,8 +56,8 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 		var DIALOGUE = get_meta("Dialogue")
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
 
-func show_item_name(str(get_meta("Name"))):
-	Hud.item_label = 
-func _on_mouse_entered() -> void:
-	var itmeget_meta("Name")
-	GameManager.item_name 
+
+#func _on_mouse_entered() -> void:
+	#var fuckyouidiiot = get_meta("Name")
+	#GameManager.dothething(fuckyouidiiot)
+	
