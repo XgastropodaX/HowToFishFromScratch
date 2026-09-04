@@ -175,6 +175,7 @@ func apply_dialogue_line() -> void:
 		
 
 	# Wait for next line
+	storeLine(dialogue_line.character, dialogue_line.text)
 	if dialogue_line.has_tag("voice"):
 		audio_stream_player_2.stream = load(dialogue_line.get_tag_value("voice"))
 		audio_stream_player_2.play()
@@ -199,7 +200,6 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	storeLine(dialogue_line.character, dialogue_line.text)
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 

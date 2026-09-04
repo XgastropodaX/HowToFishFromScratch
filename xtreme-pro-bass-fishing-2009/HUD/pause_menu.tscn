@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d25wuhxtdhcn0"]
 
 [ext_resource type="Script" uid="uid://cpvgpwrpfsweb" path="res://scripts/pause_menu.gd" id="1_1f24j"]
+[ext_resource type="Texture2D" uid="uid://b7s23pfr0elwy" path="res://assets/ui/pause/lovelyframe.png" id="2_ppbhg"]
+[ext_resource type="Texture2D" uid="uid://cr2xv75g46fyt" path="res://assets/ui/pause/pause-button.png" id="3_rlg28"]
+[ext_resource type="Texture2D" uid="uid://cs3iog07x3qfg" path="res://assets/ui/pause/pause-button-select.png" id="4_mm4yt"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2038665094]
 process_mode = 3
@@ -15,12 +18,88 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.18039216)
 
-[node name="Button" type="Button" parent="." unique_id=669079133]
-offset_left = 499.0
-offset_top = 273.0
-offset_right = 569.0
-offset_bottom = 304.0
-text = "Resume
-"
+[node name="PauseFrame" type="TextureRect" parent="." unique_id=1190080892]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -245.0
+offset_right = 443.0
+offset_bottom = 733.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ppbhg")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Resume" type="TextureButton" parent="." unique_id=2040733256]
+offset_left = 320.0
+offset_top = 211.0
+offset_right = 800.0
+offset_bottom = 298.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_rlg28")
+texture_hover = ExtResource("4_mm4yt")
+
+[node name="Label" type="Label" parent="Resume" unique_id=1591716895]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Save" type="TextureButton" parent="." unique_id=2112010046]
+offset_left = 319.0
+offset_top = 269.0
+offset_right = 799.0
+offset_bottom = 356.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_rlg28")
+
+[node name="Label" type="Label" parent="Save" unique_id=1492385255]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Save"
+
+[node name="Load" type="TextureButton" parent="." unique_id=232013702]
+offset_left = 319.0
+offset_top = 331.0
+offset_right = 799.0
+offset_bottom = 418.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_rlg28")
+
+[node name="Label" type="Label" parent="Load" unique_id=779807865]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[node name="Quit" type="TextureButton" parent="." unique_id=274026295]
+offset_left = 320.0
+offset_top = 390.0
+offset_right = 800.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_rlg28")
+
+[node name="Label" type="Label" parent="Quit" unique_id=1230563579]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

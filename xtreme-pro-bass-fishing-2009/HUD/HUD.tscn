@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bxt0ltjl0y5e" path="res://assets/ui/icons/setting.png" id="2_aa5tu"]
 [ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="2_amwvk"]
 [ext_resource type="Texture2D" uid="uid://bm5ny7bity5hm" path="res://assets/ui/icons/HISTORY.png" id="3_njmlf"]
+[ext_resource type="PackedScene" uid="uid://d25wuhxtdhcn0" path="res://HUD/pause_menu.tscn" id="5_aa5tu"]
+[ext_resource type="Script" uid="uid://bkljsldvkjy38" path="res://levels/historyui.gd" id="6_lkt0t"]
+[ext_resource type="Texture2D" uid="uid://sqynopg7kv75" path="res://assets/ui/submenu/recallmenutest.png" id="7_6i5cd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5cd"]
 
@@ -96,6 +99,60 @@ offset_bottom = 325.0
 mouse_filter = 2
 bbcode_enabled = true
 
+[node name="PauseMenu" parent="." unique_id=2038665094 instance=ExtResource("5_aa5tu")]
+
+[node name="HistoryUI" type="CanvasLayer" parent="." unique_id=147880618]
+layer = 150
+
+[node name="historyui" type="Control" parent="HistoryUI" unique_id=20735224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_lkt0t")
+
+[node name="ColorRect" type="ColorRect" parent="HistoryUI/historyui" unique_id=914887852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 4.925049
+offset_bottom = -31.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.741668, 1.0262647)
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="TextureRect2" type="TextureRect" parent="HistoryUI/historyui" unique_id=539939079]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.0
+offset_top = -235.0
+offset_right = 928.0
+offset_bottom = 780.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6i5cd")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HistoryUI/historyui" unique_id=869590554]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 123.0
+offset_right = 486.0
+offset_bottom = 555.0
+bbcode_enabled = true
+
 [connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_pressed"]
-[connection signal="toggled" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="." method="_on_history_toggled"]
+[connection signal="toggled" from="PanelContainer/Frame/MenuButtons/HBoxContainer/History" to="HistoryUI/historyui" method="_on_history_toggled"]
 [connection signal="pressed" from="PanelContainer/Frame/MenuButtons/HBoxContainer/Settings" to="." method="_on_settings_pressed"]

@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://c8xulrl7uge1t" path="res://player/player.tscn" id="2_hb8io"]
 [ext_resource type="PackedScene" uid="uid://wchuip8v5dhg" path="res://systems/gibble.tscn" id="3_hb8io"]
 [ext_resource type="Script" uid="uid://vs76qiamewt" path="res://scripts/prop_interact.gd" id="4_t3dhk"]
+[ext_resource type="Script" uid="uid://cs116w2fdcpml" path="res://levels/testuithing.gd" id="5_6euoa"]
 [ext_resource type="Script" uid="uid://5m7mhks1notw" path="res://HUD/uisubviewport.gd" id="5_l0kak"]
 [ext_resource type="PackedScene" uid="uid://dauxiq6luk54q" path="res://levels/bagtest.tscn" id="6_6euoa"]
 [ext_resource type="PackedScene" uid="uid://b1siwoyhlvo35" path="res://rotate.tscn" id="7_6euoa"]
+[ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="9_dyqbh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uu6m2"]
 
@@ -74,6 +76,21 @@ shape = SubResource("BoxShape3D_l0kak")
 
 [node name="HBoxContainer" type="CanvasLayer" parent="." unique_id=689099848]
 
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1674871263]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -551.0
+offset_top = -482.0
+offset_right = -5.0
+offset_bottom = 255.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_dyqbh")
+
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=413837349]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -89,11 +106,10 @@ size = Vector2i(545, 652)
 render_target_update_mode = 4
 
 [node name="CanvasLayer" parent="HBoxContainer/GridContainer/SubViewportContainer/SubViewport" unique_id=1442837078 instance=ExtResource("6_6euoa")]
-visible = false
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer/GridContainer" unique_id=1881976784]
 layout_mode = 2
-script = ExtResource("5_l0kak")
+script = ExtResource("5_6euoa")
 
 [node name="SubViewport2" type="SubViewport" parent="HBoxContainer/GridContainer/SubViewportContainer2" unique_id=1530491235]
 transparent_bg = true
@@ -102,7 +118,6 @@ size = Vector2i(342, 642)
 render_target_update_mode = 4
 
 [node name="World" parent="HBoxContainer/GridContainer/SubViewportContainer2/SubViewport2" unique_id=223140016 instance=ExtResource("7_6euoa")]
-visible = false
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 

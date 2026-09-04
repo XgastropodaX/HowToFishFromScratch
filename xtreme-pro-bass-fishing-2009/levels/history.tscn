@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://1x2m0hrvjdau"]
+
+[ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="1_2savi"]
+[ext_resource type="Script" uid="uid://bkljsldvkjy38" path="res://levels/historyui.gd" id="1_p0p67"]
+[ext_resource type="Texture2D" uid="uid://sqynopg7kv75" path="res://assets/ui/submenu/recallmenutest.png" id="2_p0p67"]
+
+[node name="History" type="CanvasLayer" unique_id=838471433]
+
+[node name="historyui" type="Control" parent="." unique_id=750828106]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0p67")
+
+[node name="ColorRect" type="ColorRect" parent="historyui" unique_id=777758325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="TextureRect" type="TextureRect" parent="historyui" unique_id=442192725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2savi")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="historyui" unique_id=800687449]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.0
+offset_top = -235.0
+offset_right = 928.0
+offset_bottom = 780.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_p0p67")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="historyui" unique_id=1388110750]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 123.0
+offset_right = 486.0
+offset_bottom = 555.0

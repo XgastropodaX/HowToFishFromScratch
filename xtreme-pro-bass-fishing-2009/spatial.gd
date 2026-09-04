@@ -21,9 +21,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("rclick"):
 		rightPressed = true
-	if Input.is_action_just_released("right_click"):
+	if Input.is_action_just_released("rclick"):
 		rightPressed = false
 
 	if Input.is_action_just_pressed("click"):

@@ -7,7 +7,7 @@ func _ready() -> void:
 	get_tree().paused = false
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("hist"):
 		if get_tree().paused:
 			visible = false
 			get_tree().paused = false
@@ -20,6 +20,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_resume_pressed() -> void:
+func _on_button_pressed() -> void:
 	visible = false
 	get_tree().paused = false

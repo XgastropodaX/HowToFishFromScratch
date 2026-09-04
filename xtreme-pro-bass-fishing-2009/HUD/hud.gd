@@ -20,7 +20,7 @@ func show_history() -> void:
 			_:
 				output_text += "%s\n" % [dict["text"]]
 	
-
+ 
 func change_item_label(itemname) -> void:
 	print("gun")
 	item_label.text = itemname
@@ -33,11 +33,3 @@ func _on_catalogue_pressed() -> void:
 	print("catalogue")
 
 #Button for history prototype
-func _on_history_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		print("history on")
-		rich_label.modulate.a = 1
-		show_history()
-	else:
-		rich_label.modulate.a = 0
-		print("history off")
