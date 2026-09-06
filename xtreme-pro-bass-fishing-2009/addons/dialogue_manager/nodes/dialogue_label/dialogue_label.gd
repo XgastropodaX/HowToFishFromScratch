@@ -146,7 +146,7 @@ func _type_next(delta: float, seconds_needed: float) -> void:
 		audio_stream_player.stop()
 	else:
 		visible_characters += 1
-		if not audio_stream_player: audio_stream_player.play()
+		if not audio_stream_player.playing: audio_stream_player.play()
 		if visible_characters <= get_total_character_count():
 			spoke.emit(get_parsed_text()[visible_characters - 1], visible_characters - 1, _get_speed(visible_characters))
 		# See if there's time to type out some more in this frame

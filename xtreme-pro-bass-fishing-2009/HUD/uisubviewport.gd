@@ -1,7 +1,7 @@
 extends SubViewportContainer
 
 
-var menuopen = false
+
 
 func _ready() -> void:
 	self.visible = false

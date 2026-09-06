@@ -18,8 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
-GameManager="*uid://b4it20pa3auwr"
-Hud="*uid://cku8lvan56sy1"
+GameManager="*uid://cg1orqq13i5tg"
 
 [display]
 

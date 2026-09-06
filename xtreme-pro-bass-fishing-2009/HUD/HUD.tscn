@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://bkljsldvkjy38" path="res://levels/historyui.gd" id="6_lkt0t"]
 [ext_resource type="Texture2D" uid="uid://sqynopg7kv75" path="res://assets/ui/submenu/recallmenutest.png" id="7_6i5cd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5cd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkt0t"]
 
 [sub_resource type="Theme" id="Theme_t1yhm"]
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_6i5cd")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_lkt0t")
 
 [node name="HUD" type="Control" unique_id=1430889925]
 layout_mode = 3
@@ -89,15 +89,6 @@ offset_right = 124.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=793909297]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 8.0
-offset_right = 512.0
-offset_bottom = 325.0
-mouse_filter = 2
-bbcode_enabled = true
 
 [node name="PauseMenu" parent="." unique_id=2038665094 instance=ExtResource("5_aa5tu")]
 

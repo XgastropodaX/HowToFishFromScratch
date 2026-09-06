@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://c8xulrl7uge1t" path="res://player/player.tscn" id="2_hb8io"]
 [ext_resource type="PackedScene" uid="uid://wchuip8v5dhg" path="res://systems/gibble.tscn" id="3_hb8io"]
 [ext_resource type="Script" uid="uid://vs76qiamewt" path="res://scripts/prop_interact.gd" id="4_t3dhk"]
-[ext_resource type="Script" uid="uid://cs116w2fdcpml" path="res://levels/testuithing.gd" id="5_6euoa"]
-[ext_resource type="Script" uid="uid://5m7mhks1notw" path="res://HUD/uisubviewport.gd" id="5_l0kak"]
+[ext_resource type="Script" uid="uid://hv2xy05xlja0" path="res://levels/menutest.gd" id="5_82lur"]
 [ext_resource type="PackedScene" uid="uid://dauxiq6luk54q" path="res://levels/bagtest.tscn" id="6_6euoa"]
 [ext_resource type="PackedScene" uid="uid://b1siwoyhlvo35" path="res://rotate.tscn" id="7_6euoa"]
+[ext_resource type="PackedScene" uid="uid://cbfrdao1tk6fl" path="res://HUD/HUD.tscn" id="9_01x3j"]
 [ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="9_dyqbh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uu6m2"]
@@ -76,51 +76,63 @@ shape = SubResource("BoxShape3D_l0kak")
 
 [node name="HBoxContainer" type="CanvasLayer" parent="." unique_id=689099848]
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1674871263]
+[node name="Bag" type="Control" parent="HBoxContainer" unique_id=1583052224]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_82lur")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Bag" unique_id=1674871263]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -551.0
-offset_top = -482.0
-offset_right = -5.0
-offset_bottom = 255.0
+offset_left = 561.0
+offset_top = 126.0
+offset_right = 1107.0
+offset_bottom = 863.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_dyqbh")
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer" unique_id=413837349]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Bag" unique_id=413837349]
+layout_mode = 0
+offset_right = 891.0
+offset_bottom = 652.0
 columns = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer/GridContainer" unique_id=680034731]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer/Bag/GridContainer" unique_id=680034731]
 layout_mode = 2
-script = ExtResource("5_l0kak")
 
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/GridContainer/SubViewportContainer" unique_id=1710479757]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/Bag/GridContainer/SubViewportContainer" unique_id=1710479757]
 handle_input_locally = false
 size = Vector2i(545, 652)
 render_target_update_mode = 4
 
-[node name="CanvasLayer" parent="HBoxContainer/GridContainer/SubViewportContainer/SubViewport" unique_id=1442837078 instance=ExtResource("6_6euoa")]
+[node name="CanvasLayer" parent="HBoxContainer/Bag/GridContainer/SubViewportContainer/SubViewport" unique_id=1442837078 instance=ExtResource("6_6euoa")]
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer/GridContainer" unique_id=1881976784]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer/Bag/GridContainer" unique_id=1881976784]
 layout_mode = 2
-script = ExtResource("5_6euoa")
 
-[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/GridContainer/SubViewportContainer2" unique_id=1530491235]
+[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/Bag/GridContainer/SubViewportContainer2" unique_id=1530491235]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(342, 642)
 render_target_update_mode = 4
 
-[node name="World" parent="HBoxContainer/GridContainer/SubViewportContainer2/SubViewport2" unique_id=223140016 instance=ExtResource("7_6euoa")]
+[node name="World" parent="HBoxContainer/Bag/GridContainer/SubViewportContainer2/SubViewport2" unique_id=223140016 instance=ExtResource("7_6euoa")]
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=851139352]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1430889925 instance=ExtResource("9_01x3j")]
+
 [connection signal="input_event" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_input_event"]
 [connection signal="mouse_entered" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_mouse_entered"]
-[connection signal="gui_input" from="HBoxContainer/GridContainer/SubViewportContainer" to="HBoxContainer/GridContainer/SubViewportContainer" method="_on_gui_input"]
+[connection signal="mouse_exited" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_mouse_exited"]
+[connection signal="gui_input" from="HBoxContainer/Bag/GridContainer/SubViewportContainer" to="HBoxContainer/Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]

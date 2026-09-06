@@ -1,5 +1,5 @@
 extends Node
-@onready var player: CharacterBody3D = $Player
+@onready var player: CharacterBody3D
 @onready var interaction = 0.0
 @onready var tween
 @onready var minigaming = false
@@ -11,7 +11,7 @@ extends Node
 
 func _ready():
 	pass
-	
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("tester"):
 		pass
@@ -50,8 +50,6 @@ func dialogue(balloon,script,text,interactable):
 	balloon_node.dialogue_change_signal.connect(dialogue_change)
 	balloon_node.exterior_change_signal.connect(exterior_change)
 
-#func dothething(thing) -> void:
-	#player.hud.item_label.text = thing
 
 func exterior_change(change):
 	pass

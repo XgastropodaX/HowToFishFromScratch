@@ -29,6 +29,8 @@ var is_animating = false
 
 var movespeed = 0.75
 
+func _ready():
+	game_manager.player = self
 
 ################################################################################
 # Move Forward to next box
@@ -260,7 +262,7 @@ func gibble_interaction(gibble,disable,directions):
 						var balloon = load("res://dialogue/Talking Balloon/balloon.tscn")
 						var script = load("res://Dialogue/writing/test.dialogue")
 						game_manager.dialogue(balloon,script,"cutTest",self)
-						gibble.set_meta("Interaction",6.0)
+						gibble.set_meta("Interaction",0.0)
 					#"ch1A_delia_1":
 						#match directions:
 							#"forward":

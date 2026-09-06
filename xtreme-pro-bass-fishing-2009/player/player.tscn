@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cjj350ujr7dhn" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ctegotfftoufv" path="res://player/sub_viewport_container.gd" id="2_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://cbfrdao1tk6fl" path="res://HUD/HUD.tscn" id="2_onrkg"]
 [ext_resource type="Shader" uid="uid://brwlksuu2atmt" path="res://shader/dotshader.gdshader" id="3_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
@@ -144,9 +143,5 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1887927120]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=833228539]
-
-[node name="HUD" parent="CanvasLayer" unique_id=1430889925 instance=ExtResource("2_onrkg")]
 
 [connection signal="gui_input" from="head/SubViewportContainer" to="head/SubViewportContainer" method="_on_gui_input"]

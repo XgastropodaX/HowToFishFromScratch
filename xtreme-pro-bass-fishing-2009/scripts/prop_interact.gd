@@ -58,6 +58,5 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 
 
 #func _on_mouse_entered() -> void:
-	#var fuckyouidiiot = get_meta("Name")
-	#GameManager.dothething(fuckyouidiiot)
+	#player.hud.item_label.text = get_meta("Name") 
 	

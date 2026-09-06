@@ -104,6 +104,11 @@ _data = {
 process_mode = 3
 layer = 100
 script = ExtResource("1_k8pky")
+start_from_title = null
+auto_start = null
+will_block_other_input = null
+next_action = null
+skip_action = null
 
 [node name="Balloon" type="Control" parent="." unique_id=359403728]
 unique_name_in_owner = true

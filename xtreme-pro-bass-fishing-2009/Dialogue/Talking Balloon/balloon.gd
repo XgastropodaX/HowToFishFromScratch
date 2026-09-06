@@ -7,6 +7,9 @@ extends CanvasLayer
 signal dialogue_change_signal
 signal exterior_change_signal
 
+@onready var player: CharacterBody3D = $GameManager/Player
+
+
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
@@ -47,6 +50,7 @@ var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
+			storeLine(dialogue_line.character, dialogue_line.text)
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
@@ -175,7 +179,6 @@ func apply_dialogue_line() -> void:
 		
 
 	# Wait for next line
-	storeLine(dialogue_line.character, dialogue_line.text)
 	if dialogue_line.has_tag("voice"):
 		audio_stream_player_2.stream = load(dialogue_line.get_tag_value("voice"))
 		audio_stream_player_2.play()
@@ -205,6 +208,7 @@ func next(next_id: String) -> void:
 
 func storeLine(character: String, text: String ):
 	GameManager.history.append({"character": character, "text": text})
+	GameManager.history.append({"character": "", "text": ""})
 
 
 #region Signals

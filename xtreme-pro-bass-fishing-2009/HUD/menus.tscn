@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bxyhoca7c8hau"]
+
+[ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="1_2noun"]
+[ext_resource type="Texture2D" uid="uid://bm5ny7bity5hm" path="res://assets/ui/icons/HISTORY.png" id="2_dkd7u"]
+[ext_resource type="Texture2D" uid="uid://bxt0ltjl0y5e" path="res://assets/ui/icons/setting.png" id="3_ggtve"]
+[ext_resource type="Texture2D" uid="uid://sqynopg7kv75" path="res://assets/ui/submenu/recallmenutest.png" id="4_dkd7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5cd"]
+
+[sub_resource type="Theme" id="Theme_v8agd"]
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_6i5cd")
+
+[node name="Menus" type="CanvasLayer" unique_id=273361858]
+
+[node name="HUD" type="Control" parent="." unique_id=1533196004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD" unique_id=1295421440]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_v8agd")
+
+[node name="Frame" type="TextureRect" parent="HUD/PanelContainer" unique_id=715790855]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_2noun")
+expand_mode = 3
+
+[node name="MenuButtons" type="VBoxContainer" parent="HUD/PanelContainer/Frame" unique_id=1414846597]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -67.0
+offset_right = 92.0
+offset_bottom = 41.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PanelContainer/Frame/MenuButtons" unique_id=2023581587]
+layout_mode = 2
+
+[node name="History" type="TextureButton" parent="HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=209910903]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_dkd7u")
+
+[node name="Settings" type="TextureButton" parent="HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=549908872]
+layout_mode = 2
+texture_normal = ExtResource("3_ggtve")
+
+[node name="ItemLabel" type="RichTextLabel" parent="HUD/PanelContainer/Frame" unique_id=306097832]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 286.0
+offset_bottom = 57.0
+
+[node name="Pause" type="Control" parent="." unique_id=14562749]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=529136906]
+
+[node name="History" type="Control" parent="CanvasLayer" unique_id=193958110]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/History" unique_id=115776610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/History" unique_id=1679742966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2noun")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/History" unique_id=1823938537]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.0
+offset_top = -235.0
+offset_right = 928.0
+offset_bottom = 780.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_dkd7u")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/History" unique_id=1879156267]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 123.0
+offset_right = 486.0
+offset_bottom = 555.0
