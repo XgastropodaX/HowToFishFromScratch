@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://bxyhoca7c8hau"]
 
 [ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="1_2noun"]
+[ext_resource type="Script" uid="uid://qkcw57yende1" path="res://scripts/ui/menus.gd" id="1_nqwn2"]
 [ext_resource type="Texture2D" uid="uid://bm5ny7bity5hm" path="res://assets/ui/icons/HISTORY.png" id="2_dkd7u"]
 [ext_resource type="Texture2D" uid="uid://bxt0ltjl0y5e" path="res://assets/ui/icons/setting.png" id="3_ggtve"]
+[ext_resource type="Texture2D" uid="uid://b7s23pfr0elwy" path="res://assets/ui/pause/lovelyframe.png" id="3_q4u0l"]
+[ext_resource type="Texture2D" uid="uid://cr2xv75g46fyt" path="res://assets/ui/pause/pause-button.png" id="4_4opmm"]
 [ext_resource type="Texture2D" uid="uid://sqynopg7kv75" path="res://assets/ui/submenu/recallmenutest.png" id="4_dkd7u"]
+[ext_resource type="Script" uid="uid://bkljsldvkjy38" path="res://scripts/ui/historyui.gd" id="5_0u3qc"]
+[ext_resource type="Texture2D" uid="uid://cs3iog07x3qfg" path="res://assets/ui/pause/pause-button-select.png" id="5_yic3s"]
+[ext_resource type="Script" uid="uid://cpvgpwrpfsweb" path="res://scripts/ui/pause_menu.gd" id="7_ipgyt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6i5cd"]
 
@@ -11,16 +17,20 @@
 PanelContainer/styles/panel = SubResource("StyleBoxEmpty_6i5cd")
 
 [node name="Menus" type="CanvasLayer" unique_id=273361858]
+script = ExtResource("1_nqwn2")
 
-[node name="HUD" type="Control" parent="." unique_id=1533196004]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=723176572]
+
+[node name="HUD" type="Control" parent="HUD" unique_id=1533196004]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HUD" unique_id=1295421440]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/HUD" unique_id=1295421440]
 clip_contents = true
 custom_minimum_size = Vector2(400, 0)
 layout_direction = 4
@@ -33,13 +43,13 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_v8agd")
 
-[node name="Frame" type="TextureRect" parent="HUD/PanelContainer" unique_id=715790855]
+[node name="Frame" type="TextureRect" parent="HUD/HUD/PanelContainer" unique_id=715790855]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("1_2noun")
 expand_mode = 3
 
-[node name="MenuButtons" type="VBoxContainer" parent="HUD/PanelContainer/Frame" unique_id=1414846597]
+[node name="MenuButtons" type="VBoxContainer" parent="HUD/HUD/PanelContainer/Frame" unique_id=1414846597]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -54,61 +64,52 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PanelContainer/Frame/MenuButtons" unique_id=2023581587]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HUD/PanelContainer/Frame/MenuButtons" unique_id=2023581587]
 layout_mode = 2
 
-[node name="History" type="TextureButton" parent="HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=209910903]
+[node name="History" type="TextureButton" parent="HUD/HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=209910903]
 layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("2_dkd7u")
 
-[node name="Settings" type="TextureButton" parent="HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=549908872]
+[node name="Settings" type="TextureButton" parent="HUD/HUD/PanelContainer/Frame/MenuButtons/HBoxContainer" unique_id=549908872]
 layout_mode = 2
 texture_normal = ExtResource("3_ggtve")
 
-[node name="ItemLabel" type="RichTextLabel" parent="HUD/PanelContainer/Frame" unique_id=306097832]
+[node name="ItemLabel" type="RichTextLabel" parent="HUD/HUD/PanelContainer/Frame" unique_id=306097832]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 9.0
 offset_right = 286.0
 offset_bottom = 57.0
 
-[node name="Pause" type="Control" parent="." unique_id=14562749]
-visible = false
+[node name="History" type="CanvasLayer" parent="." unique_id=529136906]
+
+[node name="historyui" type="Control" parent="History" unique_id=389629166]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=529136906]
-
-[node name="History" type="Control" parent="CanvasLayer" unique_id=193958110]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/History" unique_id=115776610]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_0u3qc")
+
+[node name="ColorRect" type="ColorRect" parent="History/historyui" unique_id=1474061152]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 4.925049
+offset_bottom = -31.440002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.741668, 1.0262647)
 color = Color(0, 0, 0, 0.60784316)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/History" unique_id=1679742966]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_2noun")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/History" unique_id=1823938537]
+[node name="TextureRect2" type="TextureRect" parent="History/historyui" unique_id=872930599]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,9 +126,122 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_dkd7u")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/History" unique_id=1879156267]
+[node name="RichTextLabel" type="RichTextLabel" parent="History/historyui" unique_id=1532917763]
 layout_mode = 0
 offset_left = 141.0
 offset_top = 123.0
 offset_right = 486.0
 offset_bottom = 555.0
+bbcode_enabled = true
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=1305893923]
+layer = 151
+
+[node name="Pause" type="Control" parent="Pause" unique_id=1717066149]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_ipgyt")
+
+[node name="ColorRect" type="ColorRect" parent="Pause/Pause" unique_id=203582214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="PauseFrame" type="TextureRect" parent="Pause/Pause" unique_id=610993959]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -240.0
+offset_right = 408.0
+offset_bottom = 738.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_q4u0l")
+
+[node name="Resume" type="TextureButton" parent="Pause/Pause" unique_id=301694821]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 211.0
+offset_right = 800.0
+offset_bottom = 298.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_4opmm")
+texture_hover = ExtResource("5_yic3s")
+
+[node name="Label" type="Label" parent="Pause/Pause/Resume" unique_id=1999862546]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Save" type="TextureButton" parent="Pause/Pause" unique_id=73368757]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 269.0
+offset_right = 799.0
+offset_bottom = 356.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_4opmm")
+
+[node name="Label" type="Label" parent="Pause/Pause/Save" unique_id=856174496]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Save"
+
+[node name="Load" type="TextureButton" parent="Pause/Pause" unique_id=1346198254]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 331.0
+offset_right = 799.0
+offset_bottom = 418.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_4opmm")
+
+[node name="Label" type="Label" parent="Pause/Pause/Load" unique_id=875193923]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Load"
+
+[node name="Quit" type="TextureButton" parent="Pause/Pause" unique_id=1010827081]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 390.0
+offset_right = 800.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_4opmm")
+
+[node name="Label" type="Label" parent="Pause/Pause/Quit" unique_id=2014599507]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 456.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="Pause/Pause/Resume" to="Pause/Pause" method="_on_resume_pressed"]

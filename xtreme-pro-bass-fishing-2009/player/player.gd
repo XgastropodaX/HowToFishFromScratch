@@ -16,12 +16,13 @@ signal movement
 @onready var camera = $head/SubViewportContainer/SubViewport/Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var special_light: OmniLight3D = $head/OmniLight3D
-@onready var hud: Control = $CanvasLayer/HUD
+@onready var menus: CanvasLayer = $"../../Menus"
 @onready var game_manager: Node = $".."
 @onready var moveable = true
 @onready var x_plus = 0
 @onready var z_plus = 0
 @onready var captain_path = 0.0
+
 
 
 var direction = Vector3.FORWARD

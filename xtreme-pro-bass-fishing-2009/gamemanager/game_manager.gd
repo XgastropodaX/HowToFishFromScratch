@@ -9,6 +9,8 @@ extends Node
 @onready var dialogue_interactor
 @onready var item_name = ""
 
+
+
 func _ready():
 	pass
 

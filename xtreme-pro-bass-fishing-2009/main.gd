@@ -4,6 +4,9 @@ var grabbed_object = null
 var grab_distance = 5
 var mouse = Vector2()
 const DIST = 1000
+@onready var testdude: MeshInstance3D = $boxes/RigidBody3D/testdude
+
+
 
 func _process(delta: float) -> void:
 	if grabbed_object:

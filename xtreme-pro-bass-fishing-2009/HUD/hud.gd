@@ -1,7 +1,7 @@
 extends Control
 
 @onready var rich_label: RichTextLabel = $RichTextLabel
-@onready var item_label: RichTextLabel = $PanelContainer/Frame/ItemLabel
+
 
 
 

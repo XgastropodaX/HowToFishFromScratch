@@ -4,6 +4,7 @@ extends Area3D
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
 @onready var player: CharacterBody3D = $"../../../../GameManager/Player"
+
 @onready var highlight = false
 
 
@@ -57,6 +58,11 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
 
 
-#func _on_mouse_entered() -> void:
-	#player.hud.item_label.text = get_meta("Name") 
+func _on_mouse_entered() -> void:
+	player.menus.item_label.text = get_meta("Name")
+
 	
+
+
+func _on_mouse_exited() -> void:
+	player.menus.item_label.text = "_"
