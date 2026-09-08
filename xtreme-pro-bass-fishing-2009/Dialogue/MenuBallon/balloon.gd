@@ -7,6 +7,9 @@ extends CanvasLayer
 signal dialogue_change_signal
 signal exterior_change_signal
 
+@onready var player: CharacterBody3D = $GameManager/Player
+
+
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
@@ -27,7 +30,7 @@ signal exterior_change_signal
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
-
+@onready var audio_stream_player_2: AudioStreamPlayer = %AudioStreamPlayer2
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -47,6 +50,7 @@ var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
+			storeLine(dialogue_line.character, dialogue_line.text)
 			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
@@ -165,13 +169,25 @@ func apply_dialogue_line() -> void:
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
+		audio_stream_player.stop()
+
+# Change Exterior Factors
+	if dialogue_line.has_tag("change"):
+		exterior_change_signal.emit(dialogue_line.get_tag_value("change"))
+	if dialogue_line.has_tag("volume"):
+		audio_stream_player_2.volume_db = int(dialogue_line.get_tag_value("volume"))
+		
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
-		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
-		audio_stream_player.play()
-		await audio_stream_player.finished
-		next(dialogue_line.next_id)
+		audio_stream_player_2.stream = load(dialogue_line.get_tag_value("voice"))
+		audio_stream_player_2.play()
+		await audio_stream_player_2.finished
+		if dialogue_line.has_tag("wait"):
+			is_waiting_for_input = true
+			balloon.focus_mode = Control.FOCUS_ALL
+			balloon.grab_focus()
+		else: next(dialogue_line.next_id)
 	elif dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
@@ -187,12 +203,12 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	storeLine(dialogue_line.character, dialogue_line.text)
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
 func storeLine(character: String, text: String ):
 	GameManager.history.append({"character": character, "text": text})
+	GameManager.history.append({"character": "", "text": ""})
 
 
 #region Signals

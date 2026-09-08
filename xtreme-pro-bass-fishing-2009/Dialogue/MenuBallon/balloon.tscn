@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bsgfhmdgvcvnp" path="res://Dialogue/Talking Balloon/balloon.gd" id="1_k8pky"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_3ucq1"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_sfu85"]
-[ext_resource type="Texture2D" uid="uid://dy7pq3xm4a00b" path="res://assets/ui/blankui.png" id="4_30dlo"]
+[ext_resource type="AudioStream" uid="uid://f3jp26yhmgjx" path="res://sound/talksound_mixdown.wav" id="4_30dlo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -104,11 +104,6 @@ _data = {
 process_mode = 3
 layer = 100
 script = ExtResource("1_k8pky")
-start_from_title = null
-auto_start = null
-will_block_other_input = null
-next_action = null
-skip_action = null
 
 [node name="Balloon" type="Control" parent="." unique_id=359403728]
 unique_name_in_owner = true
@@ -203,16 +198,10 @@ text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
+stream = ExtResource("4_30dlo")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=738946222]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_30dlo")
-expand_mode = 1
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=946602894]
+unique_name_in_owner = true
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

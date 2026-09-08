@@ -2,9 +2,9 @@ extends Area3D
 @onready var model: MeshInstance3D = $".."
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
+@onready var player: CharacterBody3D = $"../../../../../../../../../../../Player"
+@onready var game_manager: Node = $"../../../../../../../../../../.."
 @onready var highlight = false
-@onready var player: CharacterBody3D = $"../../../../GameManager/Player"
-@onready var game_manager: Node = $"../../../../GameManager"
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -26,7 +26,7 @@ func connection():
 func toggle_highlight(on: bool):
 	if on:
 		highlight = true
-		distance = abs((model.global_position.x - $"../../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../../GameManager/Player".global_position.z))
+		distance = abs((model.global_position.x - $"../../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
@@ -39,7 +39,7 @@ func toggle_highlight(on: bool):
 func check_highlight():
 	if highlight:
 		print("highlight")
-		distance = abs((model.global_position.x - $"../../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../../GameManager/Player".global_position.z))
+		distance = abs((model.global_position.x - $"../../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
