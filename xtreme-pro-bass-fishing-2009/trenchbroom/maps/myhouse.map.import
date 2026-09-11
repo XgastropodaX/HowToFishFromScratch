@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bdr485bpe0yjj"
+path="res://.godot/imported/myhouse.map-a8440487d2d3d811f1cead33ff89a9c0.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/myhouse.map"
+dest_files=["res://.godot/imported/myhouse.map-a8440487d2d3d811f1cead33ff89a9c0.tres"]
+
+[params]
+

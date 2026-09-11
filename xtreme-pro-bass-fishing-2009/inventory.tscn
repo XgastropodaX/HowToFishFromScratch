@@ -8,18 +8,6 @@
 [ext_resource type="Script" uid="uid://dmk3se5x2et1h" path="res://lostitem.gd" id="6_2pjyi"]
 [ext_resource type="Script" uid="uid://cmeq6ssmmn1x" path="res://changespatial.gd" id="7_dhhmk"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4epum"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_vgiii"]
-sky_material = SubResource("ProceduralSkyMaterial_4epum")
-
-[sub_resource type="Environment" id="Environment_kucie"]
-background_mode = 2
-sky = SubResource("Sky_vgiii")
-tonemap_mode = 2
-
 [sub_resource type="BoxMesh" id="BoxMesh_8xn2g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b541n"]
@@ -39,19 +27,6 @@ size = Vector3(2.2772827, 3.1918945, 6.93042)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4q1n"]
 size = Vector3(20.592896, 3.3458252, 17.742126)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dtjj5"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_4fdwm"]
-sky_material = SubResource("ProceduralSkyMaterial_dtjj5")
-
-[sub_resource type="Environment" id="Environment_ivl67"]
-background_mode = 2
-sky = SubResource("Sky_4fdwm")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="Inventory" type="CanvasLayer" unique_id=1083433282]
 
@@ -99,9 +74,6 @@ render_target_update_mode = 4
 [node name="world" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1454898785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.875368, 0, 0)
 script = ExtResource("3_ho8i8")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=936199834]
-environment = SubResource("Environment_kucie")
 
 [node name="walls" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=270920400]
 
@@ -200,9 +172,6 @@ script = ExtResource("7_dhhmk")
 
 [node name="Held" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" unique_id=57111950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1584797, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=1638495004]
-environment = SubResource("Environment_ivl67")
 
 [node name="Camera3D" type="Camera3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=1709360069]
 transform = Transform3D(1, 0, 0, 0, 0.96675205, 0.25571576, 0, -0.25571576, 0.96675205, 0, 2.5048506, 4.431341)

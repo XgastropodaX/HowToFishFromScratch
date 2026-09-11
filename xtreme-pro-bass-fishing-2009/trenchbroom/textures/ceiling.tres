@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://lid854ga05rv"]
+
+[ext_resource type="Texture2D" uid="uid://d1cmmt164xsxx" path="res://trenchbroom/textures/ceiling.png" id="1_5g082"]
+
+[resource]
+albedo_texture = ExtResource("1_5g082")
+metallic_specular = 0.0
+texture_filter = 2

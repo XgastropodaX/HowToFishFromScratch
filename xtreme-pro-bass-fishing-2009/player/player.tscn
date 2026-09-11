@@ -32,6 +32,7 @@ script = ExtResource("1_4flbx")
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1251739039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44896066, 0)
 mesh = SubResource("CapsuleMesh_4flbx")
 
 [node name="head" type="Node3D" parent="." unique_id=617455605]

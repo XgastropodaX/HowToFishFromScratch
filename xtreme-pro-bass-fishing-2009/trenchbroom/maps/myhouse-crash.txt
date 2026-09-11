@@ -1,0 +1,39 @@
+OS:	Windows 11 Version 25H2
+Qt:	6.10.3
+GL_VENDOR:	NVIDIA Corporation
+GL_RENDERER:	NVIDIA GeForce RTX 3050/PCIe/SSE2
+GL_VERSION:	4.6.0 NVIDIA 591.86
+TrenchBroom Version:	2026.2
+TrenchBroom Build:	v2026.2 Release Win64
+Reason:	3765269347
+Stack trace (most recent call first):
+#0  0x00007ff740e6827d in void __cdecl std::_Throw_bad_any_cast(void)
+#1  0x00007ff741276f10 in tb::ui::`anonymous namespace'::MoveVertexPart::mouseClick
+#2  0x00007ff741119927 in public: bool __cdecl tb::ui::ToolChain::mouseClick(class tb::ui::InputState const & __ptr64) __ptr64
+#3  0x00007ff741119927 in public: bool __cdecl tb::ui::ToolChain::mouseClick(class tb::ui::InputState const & __ptr64) __ptr64
+#4  0x00007ff74110fb3c in public: virtual void __cdecl tb::ui::ToolBoxConnector::processEvent(struct tb::ui::MouseEvent const & __ptr64) __ptr64
+#5  0x00007ff74119e2fb in public: void __cdecl tb::ui::InputEventQueue::processEvents(class tb::ui::InputEventProcessor & __ptr64) __ptr64
+#6  0x00007ff74110ceff in protected: virtual void __cdecl tb::ui::RenderView::paintGL(void) __ptr64
+#7  0x00007ffafd5c39ae in QOpenGLWidget::redirected
+#8  0x00007ffafd5c330e in QOpenGLWidget::paintEvent
+#9  0x00007ffa22609ca2 in QWidget::event
+#10 0x00007ffa225c3520 in QApplicationPrivate::notify_helper
+#11 0x00007ffa225c261d in QApplication::notify
+#12 0x00007ffa0a289c50 in QCoreApplication::notifyInternal2
+#13 0x00007ffa22618959 in QWidgetPrivate::sendPaintEvent
+#14 0x00007ffa2262b161 in QWidgetRepaintManager::paintAndFlush
+#15 0x00007ffa2260a0a8 in QWidget::event
+#16 0x00007ffa225c3520 in QApplicationPrivate::notify_helper
+#17 0x00007ffa225c261d in QApplication::notify
+#18 0x00007ffa0a289c50 in QCoreApplication::notifyInternal2
+#19 0x00007ffa0a28c472 in QCoreApplicationPrivate::sendPostedEvents
+#20 0x00007ffa0be757de in QWindowsGuiEventDispatcher::sendPostedEvents
+#21 0x00007ffa0a42921f in QEventDispatcherWin32::processEvents
+#22 0x00007ffa0be75758 in QWindowsGuiEventDispatcher::processEvents
+#23 0x00007ffa0a290663 in QEventLoop::exec
+#24 0x00007ffa0a288179 in QCoreApplication::exec
+#25 0x00007ff740e708b3 in main
+#26 0x00007ff7419fddff in qtEntryPoint
+#27 0x00007ff7419f5705 in __scrt_common_main_seh
+#28 0x00007ffb1691ccb6 in BaseThreadInitThunk
+#29 0x00007ffb183ecaeb in RtlUserThreadStart

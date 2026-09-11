@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c1fsua8lwialu"
+path="res://.godot/imported/myhouse-crash.map-349f79bd786c6367b1b04300d1c242f6.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/myhouse-crash.map"
+dest_files=["res://.godot/imported/myhouse-crash.map-349f79bd786c6367b1b04300d1c242f6.tres"]
+
+[params]
+
