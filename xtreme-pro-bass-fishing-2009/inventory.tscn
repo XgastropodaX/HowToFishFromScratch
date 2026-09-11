@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://hv2xy05xlja0" path="res://levels/menutest.gd" id="1_qjyhv"]
 [ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="2_ormsd"]
 [ext_resource type="Script" uid="uid://b67c6ucj1dwco" path="res://main.gd" id="3_ho8i8"]
+[ext_resource type="Script" uid="uid://bwgo63psch02l" path="res://sub_viewport_container.gd" id="3_ormsd"]
 [ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="4_udyo3"]
 [ext_resource type="PackedScene" uid="uid://dkkb67cgp7fpg" path="res://player/baghead.tscn" id="5_a8ig1"]
 [ext_resource type="Script" uid="uid://dmk3se5x2et1h" path="res://lostitem.gd" id="6_2pjyi"]
+[ext_resource type="Script" uid="uid://dbodo56a3iqol" path="res://bagprop.gd" id="6_udyo3"]
 [ext_resource type="Script" uid="uid://cmeq6ssmmn1x" path="res://changespatial.gd" id="7_dhhmk"]
+[ext_resource type="Script" uid="uid://pmdntob11b6y" path="res://sub_viewport_container_2.gd" id="8_ho8i8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8xn2g"]
 
@@ -24,6 +27,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4c80"]
 size = Vector3(2.2772827, 3.1918945, 6.93042)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8ig1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pjyi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4q1n"]
 size = Vector3(20.592896, 3.3458252, 17.742126)
@@ -63,9 +70,13 @@ columns = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Bag/Bag/GridContainer" unique_id=1285259893]
 layout_mode = 2
+script = ExtResource("3_ormsd")
 
 [node name="SubViewport" type="SubViewport" parent="Bag/Bag/GridContainer/SubViewportContainer" unique_id=2109033612]
 handle_input_locally = false
+audio_listener_enable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
 size = Vector2i(545, 652)
 render_target_update_mode = 4
 
@@ -144,6 +155,21 @@ shape = SubResource("BoxShape3D_m4c80")
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.29468727, 1.0621595)
 mesh = ExtResource("4_udyo3")
 
+[node name="testbox2" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=666872093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2821903, -3.9701056, -2.0898473)
+mesh = SubResource("BoxMesh_a8ig1")
+
+[node name="Collision" type="Area3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2" unique_id=477368465]
+script = ExtResource("6_udyo3")
+metadata/Dialogue = "start"
+metadata/Click_Distance = 40
+metadata/Script = "res://Dialogue/writing/test.dialogue"
+metadata/Name = "Gun"
+metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" unique_id=1893587028]
+shape = SubResource("BoxShape3D_2pjyi")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=1562566180]
 transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68194723, -6.6797295, 2.57109, 2.6246598)
 
@@ -160,6 +186,7 @@ shape = SubResource("BoxShape3D_i4q1n")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Bag/Bag/GridContainer" unique_id=1465085741]
 layout_mode = 2
+script = ExtResource("8_ho8i8")
 
 [node name="SubViewport2" type="SubViewport" parent="Bag/Bag/GridContainer/SubViewportContainer2" unique_id=883046224]
 transparent_bg = true
@@ -204,5 +231,8 @@ text = "funnygoji
 "
 
 [connection signal="gui_input" from="Bag/Bag/GridContainer/SubViewportContainer" to="Bag/Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
+[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_mouse_exited"]
 [connection signal="body_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/Area3D" method="_on_body_entered"]
 [connection signal="mouse_entered" from="Bag/Bag/Button" to="Bag/Bag" method="_on_button_mouse_entered"]

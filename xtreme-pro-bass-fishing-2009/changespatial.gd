@@ -1,5 +1,5 @@
 extends CanvasLayer
-@onready var player: CharacterBody3D = $"../../../../../../../GameManager/Player"
+@onready var player: CharacterBody3D = $"../../../../../../../Player"
 
 
 #get the name of the object

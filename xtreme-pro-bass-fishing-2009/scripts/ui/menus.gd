@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var item_label: RichTextLabel = $HUD/HUD/PanelContainer/Frame/ItemLabel
 @onready var inspect_item = ""
-#@onready var held: CanvasLayer = $Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held
 
 
 enum MenuState {
