@@ -16,7 +16,7 @@ signal movement
 @onready var camera = $head/SubViewportContainer/SubViewport/Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var special_light: OmniLight3D = $head/OmniLight3D
-@onready var menus: CanvasLayer = $"../../Menus"
+@onready var menus: CanvasLayer = $"../Menus"
 @onready var game_manager: Node = $".."
 @onready var moveable = true
 @onready var x_plus = 0
