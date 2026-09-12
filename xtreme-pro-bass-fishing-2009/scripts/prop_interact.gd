@@ -5,7 +5,6 @@ extends Area3D
 @onready var highlight = false
 @onready var player: CharacterBody3D = $"../../../../GameManager/Player"
 @onready var game_manager: Node = $"../../../../GameManager"
-@onready var menus: CanvasLayer = $"../../../../Menus"
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -59,10 +58,10 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 
 
 func _on_mouse_entered() -> void:
-	menus.item_label.text = get_meta("Name")
+	player.menus.item_label.text = get_meta("Name")
 
 	
 
 
 func _on_mouse_exited() -> void:
-	menus.item_label.text = "_"
+	player.menus.item_label.text = "_"
