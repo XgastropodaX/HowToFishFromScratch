@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cusvlf5f1thoh" path="res://inventory.tscn" id="4_0cbvj"]
 [ext_resource type="PackedScene" uid="uid://c5kvn4s5k34a5" path="res://meshes/LowPolybed.glb" id="6_0cbvj"]
 [ext_resource type="Script" uid="uid://dj86lup4tx745" path="res://meshes/propinteract3.tscn.gd" id="7_nc6ru"]
+[ext_resource type="PackedScene" uid="uid://j4dloejw85ds" path="res://meshes/Nighttable.glb" id="8_5jd1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nc6ru"]
 size = Vector3(3.802246, 1.6850586, 3)
@@ -18,9 +19,11 @@ size = Vector3(3.802246, 1.6850586, 3)
 [node name="Player" parent="GameManager" unique_id=536236575 instance=ExtResource("2_xxrkp")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.6608095, 2.0920439, 2.7624326)
 
-[node name="Menus" parent="GameManager" unique_id=273361858 instance=ExtResource("3_xxrkp")]
-
 [node name="Inventory" parent="GameManager" unique_id=1083433282 instance=ExtResource("4_0cbvj")]
+process_mode = 3
+
+[node name="Menus" parent="GameManager" unique_id=273361858 instance=ExtResource("3_xxrkp")]
+process_mode = 3
 
 [node name="Testbroom" parent="." unique_id=917482156 instance=ExtResource("3_0cbvj")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
@@ -47,6 +50,9 @@ shape = SubResource("BoxShape3D_nc6ru")
 [node name="OmniLight3D" type="OmniLight3D" parent="lights" unique_id=1398826186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9511573, 2.1525774, 4.902074)
 light_color = Color(1, 0.8, 0, 1)
+
+[node name="Nighttable" parent="." unique_id=1018333882 instance=ExtResource("8_5jd1l")]
+transform = Transform3D(-1.7, 0, -1.4861872e-07, 0, 1.7, 0, 1.4861872e-07, 0, -1.7, 4.3464785, 0.009122759, 4.283062)
 
 [connection signal="input_event" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_input_event"]
 [connection signal="mouse_entered" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_mouse_entered"]

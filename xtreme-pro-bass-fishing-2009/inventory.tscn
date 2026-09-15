@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://cusvlf5f1thoh"]
 
-[ext_resource type="Script" uid="uid://hv2xy05xlja0" path="res://levels/menutest.gd" id="1_qjyhv"]
+[ext_resource type="Script" uid="uid://cejfx1ianp2vm" path="res://scripts/bagscript.gd" id="1_ho8i8"]
 [ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="2_ormsd"]
 [ext_resource type="Script" uid="uid://b67c6ucj1dwco" path="res://main.gd" id="3_ho8i8"]
 [ext_resource type="Script" uid="uid://bwgo63psch02l" path="res://sub_viewport_container.gd" id="3_ormsd"]
 [ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="4_udyo3"]
 [ext_resource type="PackedScene" uid="uid://dkkb67cgp7fpg" path="res://player/baghead.tscn" id="5_a8ig1"]
-[ext_resource type="Script" uid="uid://dmk3se5x2et1h" path="res://lostitem.gd" id="6_2pjyi"]
-[ext_resource type="Script" uid="uid://dbodo56a3iqol" path="res://bagprop.gd" id="6_udyo3"]
-[ext_resource type="Script" uid="uid://cmeq6ssmmn1x" path="res://changespatial.gd" id="7_dhhmk"]
+[ext_resource type="Script" uid="uid://b1mquytkfp65t" path="res://rigidinteraction.gd" id="5_udyo3"]
 [ext_resource type="Script" uid="uid://pmdntob11b6y" path="res://sub_viewport_container_2.gd" id="8_ho8i8"]
+[ext_resource type="Script" uid="uid://yndsexnxuy5f" path="res://scripts/ui/held_item.gd" id="9_ho8i8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8xn2g"]
 
@@ -21,19 +20,15 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4mou"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_scktg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ho8i8"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_mckt2"]
+[sub_resource type="BoxMesh" id="BoxMesh_udyo3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4c80"]
 size = Vector3(2.2772827, 3.1918945, 6.93042)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a8ig1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2pjyi"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_i4q1n"]
-size = Vector3(20.592896, 3.3458252, 17.742126)
+[sub_resource type="BoxShape3D" id="BoxShape3D_udyo3"]
+size = Vector3(1, 1.5551758, 3.0252686)
 
 [node name="Inventory" type="CanvasLayer" unique_id=1083433282]
 
@@ -44,7 +39,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_qjyhv")
+script = ExtResource("1_ho8i8")
 
 [node name="TextureRect" type="TextureRect" parent="Bag/Bag" unique_id=449818647]
 layout_mode = 1
@@ -77,12 +72,14 @@ handle_input_locally = false
 audio_listener_enable_3d = true
 physics_object_picking = true
 physics_object_picking_sort = true
+physics_object_picking_first_only = true
 size = Vector2i(545, 652)
 render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport" unique_id=658943313]
 
 [node name="world" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1454898785]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.875368, 0, 0)
 script = ExtResource("3_ho8i8")
 
@@ -136,39 +133,45 @@ shape = SubResource("BoxShape3D_t4mou")
 [node name="boxes" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=2111125323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.531912, 0)
 
-[node name="testbox" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=33299765]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox" unique_id=1646261177]
-shape = SubResource("BoxShape3D_scktg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox" unique_id=2064532730]
-mesh = SubResource("BoxMesh_mckt2")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=601911355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0208588, 2.0046558, 0.002115965)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/RigidBody3D" unique_id=789802534]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.082152605, 0.23824406, 0.60528064)
-shape = SubResource("BoxShape3D_m4c80")
-
-[node name="testdude" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/RigidBody3D" unique_id=2095842517]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.29468727, 1.0621595)
-mesh = ExtResource("4_udyo3")
-
-[node name="testbox2" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=666872093]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2821903, -3.9701056, -2.0898473)
-mesh = SubResource("BoxMesh_a8ig1")
-
-[node name="Collision" type="Area3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2" unique_id=477368465]
-script = ExtResource("6_udyo3")
+[node name="RigidBody3D" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=252412545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4169006, 1.7805514, 1.4794064)
+script = ExtResource("5_udyo3")
 metadata/Dialogue = "start"
 metadata/Click_Distance = 40
 metadata/Script = "res://Dialogue/writing/test.dialogue"
-metadata/Name = "Gun"
+metadata/Name = "Cube"
 metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" unique_id=1893587028]
-shape = SubResource("BoxShape3D_2pjyi")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/RigidBody3D" unique_id=195703615]
+shape = SubResource("BoxShape3D_ho8i8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/RigidBody3D" unique_id=510179913]
+mesh = SubResource("BoxMesh_udyo3")
+
+[node name="Goji" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=601911355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99396133, 1.5848093, 0.002115965)
+can_sleep = false
+script = ExtResource("5_udyo3")
+metadata/Dialogue = "start"
+metadata/Click_Distance = 40
+metadata/Script = "res://Dialogue/writing/test.dialogue"
+metadata/Name = "Goji"
+metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
+metadata/State = "items.Goji"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=789802534]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.08215332, 0.34745407, 0.84438753)
+shape = SubResource("BoxShape3D_m4c80")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=2095842517]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.29468727, 1.0621595)
+mesh = ExtResource("4_udyo3")
+
+[node name="Area3D" type="Area3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=1803423835]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji/Area3D" unique_id=1329871887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2775879, 0.99867034)
+shape = SubResource("BoxShape3D_udyo3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=1562566180]
 transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68194723, -6.6797295, 2.57109, 2.6246598)
@@ -176,13 +179,8 @@ transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68
 [node name="Head" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=889747555 instance=ExtResource("5_a8ig1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8687377, 4.6451473)
 
-[node name="Area3D" type="Area3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=960089228]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.8381653, -6.644924, 0)
-script = ExtResource("6_2pjyi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/Area3D" unique_id=149372079]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0694866, 0, 0)
-shape = SubResource("BoxShape3D_i4q1n")
+[node name="Marker3D" type="Marker3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=682848575]
+transform = Transform3D(-2.149845, 0, -9.780081e-07, 0, 12.951118, 0, 1.8794542e-07, 0, -11.187108, -0.19393158, 8.023882, -1.0867581)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Bag/Bag/GridContainer" unique_id=1465085741]
 layout_mode = 2
@@ -195,7 +193,7 @@ size = Vector2i(342, 642)
 render_target_update_mode = 4
 
 [node name="Held" type="CanvasLayer" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2" unique_id=1988894530]
-script = ExtResource("7_dhhmk")
+script = ExtResource("9_ho8i8")
 
 [node name="Held" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" unique_id=57111950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1584797, 0, 0)
@@ -221,18 +219,8 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Button" type="Button" parent="Bag/Bag" unique_id=1895672783]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 195.0
-offset_right = 375.0
-offset_bottom = 240.0
-text = "funnygoji
-"
-
 [connection signal="gui_input" from="Bag/Bag/GridContainer/SubViewportContainer" to="Bag/Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
-[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_input_event"]
-[connection signal="mouse_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/testbox2/Collision" method="_on_mouse_exited"]
-[connection signal="body_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/Area3D" method="_on_body_entered"]
-[connection signal="mouse_entered" from="Bag/Bag/Button" to="Bag/Bag" method="_on_button_mouse_entered"]
+[connection signal="area_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_area_3d_area_entered"]
+[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_area_3d_input_event"]
+[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" method="_on_area_3d_input_event"]
+[connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji/Area3D" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_area_3d_mouse_exited"]

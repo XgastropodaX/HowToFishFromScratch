@@ -7,7 +7,6 @@ extends CanvasLayer
 signal dialogue_change_signal
 signal exterior_change_signal
 
-@onready var player: CharacterBody3D = $GameManager/Player
 
 
 ## The dialogue resource

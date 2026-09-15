@@ -1,10 +1,10 @@
 extends Area3D
-@onready var model: MeshInstance3D = $".."
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
-@onready var player: CharacterBody3D = $"../../../../../../../../../../../Player"
-@onready var game_manager: Node = $"../../../../../../../../../../.."
 @onready var highlight = false
+@onready var model: MeshInstance3D = $"../testdude"
+@onready var game_manager: Node = $"../../../../../../../../../../.."
+@onready var player: CharacterBody3D = $"../../../../../../../../../../../Player"
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -24,6 +24,7 @@ func connection():
 	
 	
 func toggle_highlight(on: bool):
+	print("bitch")
 	if on:
 		highlight = true
 		distance = abs((model.global_position.x - $"../../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../../Player".global_position.z))

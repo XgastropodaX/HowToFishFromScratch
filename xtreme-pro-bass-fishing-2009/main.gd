@@ -4,7 +4,6 @@ var grabbed_object = null
 var grab_distance = 5
 var mouse = Vector2()
 const DIST = 1000
-@onready var testdude: MeshInstance3D = $boxes/RigidBody3D/testdude
 
 
 
@@ -22,9 +21,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse = event.position
 	if event is InputEventMouseButton:
-		if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:
+		var leftButtonPressed = event.button_index == MOUSE_BUTTON_LEFT && event.pressed
+		var leftButtonReleased = event.button_index == MOUSE_BUTTON_LEFT && !event.pressed
+		
+		if leftButtonPressed:
 			get_mouse_world_pos(mouse)
-		elif event.pressed == false and event.button_index == MOUSE_BUTTON_RIGHT:
+		elif leftButtonReleased:
 			grabbed_object = null
 		
 func get_mouse_world_pos(mouse:Vector2):

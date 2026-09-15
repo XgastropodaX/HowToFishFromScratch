@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bu1ddu8stknkd"
+path="res://.godot/imported/lovelyRoom1.dialogue-3cf4f301190d4c99e01c3e21f699d428.tres"
+
+[deps]
+
+source_file="res://Dialogue/writing/lovelyRoom1.dialogue"
+dest_files=["res://.godot/imported/lovelyRoom1.dialogue-3cf4f301190d4c99e01c3e21f699d428.tres"]
+
+[params]
+
+defaults=true

@@ -1,12 +1,13 @@
-extends Area3D
-@onready var model: MeshInstance3D = $".."
+extends RigidBody3D
+
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
 @onready var highlight = false
-@onready var player: CharacterBody3D = $"../../../../GameManager/Player"
-@onready var game_manager: Node = $"../../../../GameManager"
-@onready var menus: CanvasLayer = $"../../../../GameManager/Menus"
-
+@onready var model: MeshInstance3D = $MeshInstance3D
+@onready var game_manager: Node = $"../../../../../../../../../.."
+@onready var menus: CanvasLayer = $"../../../../../../../../../../Menus"
+@onready var bag: Control = $"../../../../../../.."
+@onready var player: CharacterBody3D = $"../../../../../../../../../../Player"
 
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')
@@ -23,16 +24,19 @@ func connection():
 	mouse_exited.connect(toggle_highlight.bind(false))
 	player.movement.connect(check_highlight)
 	
-	
+
 func toggle_highlight(on: bool):
 	if on:
+		menus.item_label.text = get_meta("Name")
+		bag.selected_item = get_meta("Name")
 		highlight = true
-		distance = abs((model.global_position.x - $"../../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../../GameManager/Player".global_position.z))
+		distance = abs((model.global_position.x - $"../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
 				model.set_surface_override_material(i, highlight_mat)
 	else:
+		menus.item_label.text = "_"
 		highlight = false
 		for i in materials.size():
 				model.set_surface_override_material(i, materials[i])
@@ -40,7 +44,8 @@ func toggle_highlight(on: bool):
 func check_highlight():
 	if highlight:
 		print("highlight")
-		distance = abs((model.global_position.x - $"../../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../../GameManager/Player".global_position.z))
+		bag.change_item()
+		distance = abs((model.global_position.x - $"../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
@@ -49,20 +54,17 @@ func check_highlight():
 			for i in materials.size():
 				model.set_surface_override_material(i, materials[i])
 
-func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+
+
+
+
+func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable):
 		print("click")
 		var BALLOON = load(get_meta("Balloon"))
 		var SCRIPT = load(get_meta("Script"))
 		var DIALOGUE = get_meta("Dialogue")
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
-
-
-func _on_mouse_entered() -> void:
-	menus.item_label.text = get_meta("Name")
-
 	
-
-
-func _on_mouse_exited() -> void:
-	menus.item_label.text = "_"
+	
+	

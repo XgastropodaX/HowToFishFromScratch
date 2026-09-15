@@ -30,6 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15529919, 0, 0)
 
 [node name="Inventory" parent="GameManager" unique_id=1083433282 instance=ExtResource("3_l0kak")]
 
+[node name="Menus" parent="GameManager" unique_id=273361858 instance=ExtResource("3_8j3fl")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2094203669]
 environment = SubResource("Environment_t3dhk")
 
@@ -73,8 +75,6 @@ metadata/Name = "Gun"
 shape = SubResource("BoxShape3D_l0kak")
 
 [node name="characters" type="Node3D" parent="." unique_id=1820371277]
-
-[node name="Menus" parent="." unique_id=273361858 instance=ExtResource("3_8j3fl")]
 
 [connection signal="input_event" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_input_event"]
 [connection signal="mouse_entered" from="interactables/props/testbox/Collision" to="interactables/props/testbox/Collision" method="_on_mouse_entered"]
