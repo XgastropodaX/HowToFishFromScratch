@@ -8,6 +8,7 @@ extends RigidBody3D
 @onready var menus: CanvasLayer = $"../../../../../../../../../../Menus"
 @onready var bag: Control = $"../../../../../../.."
 @onready var player: CharacterBody3D = $"../../../../../../../../../../Player"
+@onready var held: CanvasLayer = $"../../../../../../SubViewportContainer2/SubViewport2/Held"
 
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')
@@ -42,7 +43,6 @@ func toggle_highlight(on: bool):
 func check_highlight():
 	if highlight:
 		print("highlight")
-		bag.change_item()
 		distance = abs((model.global_position.x - $"../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
@@ -59,6 +59,7 @@ func check_highlight():
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable):
 		print("click")
+		held.change_item(get_meta("State"))
 		var BALLOON = load(get_meta("Balloon"))
 		var SCRIPT = load(get_meta("Script"))
 		var DIALOGUE = get_meta("Dialogue")

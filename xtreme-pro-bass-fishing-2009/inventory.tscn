@@ -154,7 +154,7 @@ metadata/Click_Distance = 40
 metadata/Script = "res://Dialogue/writing/test.dialogue"
 metadata/Name = "Goji"
 metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
-metadata/State = "items.Goji"
+metadata/State = "Goji"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=789802534]
 transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0.003704071, 0.35648012, 0.9962287)
@@ -212,5 +212,6 @@ shadow_enabled = true
 
 [connection signal="gui_input" from="Bag/Bag/GridContainer/SubViewportContainer" to="Bag/Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
 [connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_input_event"]
+[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" method="_on_goji_input_event"]
 [connection signal="mouse_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_exited"]
