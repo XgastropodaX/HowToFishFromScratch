@@ -6,6 +6,6 @@
 [node name="Spatial" type="Node3D" unique_id=17505224]
 script = ExtResource("1_ne8tm")
 
-[node name="testdude" type="MeshInstance3D" parent="." unique_id=1190713391]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1190713391]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.49666476, 1.0621595)
 mesh = ExtResource("2_ne8tm")

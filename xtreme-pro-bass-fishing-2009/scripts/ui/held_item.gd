@@ -2,10 +2,10 @@ extends CanvasLayer
 @onready var goji: RigidBody3D = $"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji"
 @onready var bag: Control = $"../../../.."
 @onready var player: CharacterBody3D = $"../../../../../../../Player"
-
+var scene = preload("res://spatial.tscn")
 @export var Held_Object: PackedScene
 
-var items_state: items = items.HAHA
+var items_state = items.HAHA
 
 enum items {
 	HAHA,
@@ -13,9 +13,6 @@ enum items {
 	CUBE
 }
 
-
-#get the name of the object
-var SPATIAL_2 = preload("uid://bno314oj5cy0")
 
 
 #search a folder for the specific object in question
@@ -27,6 +24,17 @@ func change_item(state_name: String) -> void:
 		if upper_name in items:
 			items_state = items.get(upper_name)
 			print(items_state)
+		match items_state:
+			0:
+				print("None")
+				#var instance = scene.instantiate()
+				#add_child(instance)
+			1:
+				print("Goji")
+			2:
+				print("Cuob")
+			_:
+				print("nothin")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -14,9 +14,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("bag"):
-		print("huh??")
-		menuopen = not menuopen
-		self.visible = menuopen
+		if get_tree().paused:
+			print("unpaused")
+			visible = false
+			get_tree().paused = false
+		else:
+			print("HEY!")
+			visible = true
+			get_tree().paused = true
+		

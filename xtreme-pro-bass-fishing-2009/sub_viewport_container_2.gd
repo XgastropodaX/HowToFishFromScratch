@@ -1,8 +1,8 @@
 extends SubViewportContainer
 
 func _input(event):
-	if event is InputEventMouse or event is InputEventScreenDrag or event is InputEventScreenTouch:
-		return
+	#if event is InputEventMouse or event is InputEventScreenDrag or event is InputEventScreenTouch:
+		#return
 	$SubViewport2.push_input(event)
 
 

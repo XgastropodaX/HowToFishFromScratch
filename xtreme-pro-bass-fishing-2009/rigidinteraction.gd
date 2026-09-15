@@ -57,13 +57,9 @@ func check_highlight():
 
 
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable):
-		print("click")
+	if event.is_action("click") and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable and not event.is_echo():
 		held.change_item(get_meta("State"))
-		var BALLOON = load(get_meta("Balloon"))
-		var SCRIPT = load(get_meta("Script"))
-		var DIALOGUE = get_meta("Dialogue")
-		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
+
 
 
 func _on_mouse_entered() -> void:

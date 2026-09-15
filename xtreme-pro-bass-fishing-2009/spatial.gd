@@ -7,16 +7,13 @@ var moveSpeed := 0.1
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_up"):
-		$testdude.scale += Vector3.ONE*scaleMod
+		$MeshInstance3D.scale += Vector3.ONE*scaleMod
 	if event.is_action_pressed("mouse_down"):
-		$testdude.scale -= Vector3.ONE*scaleMod
-	
-	if rightPressed and event is InputEventMouseMotion:
-		global_transform.origin += Vector3(event.relative.x, -event.relative.y, 0)*moveSpeed
+		$MeshInstance3D.scale -= Vector3.ONE*scaleMod
 	
 	if pressed and event is InputEventMouseMotion:
 		rotation.x += event.relative.y*0.005
-		$testdude.rotation.y += event.relative.x*0.005
+		$MeshInstance3D.rotation.y += event.relative.x*0.005
 
 
 
