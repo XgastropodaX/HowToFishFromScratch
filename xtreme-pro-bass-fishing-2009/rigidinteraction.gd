@@ -3,12 +3,12 @@ extends RigidBody3D
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
 @onready var highlight = false
-@onready var model: MeshInstance3D = $MeshInstance3D
 @onready var game_manager: Node = $"../../../../../../../../../.."
 @onready var menus: CanvasLayer = $"../../../../../../../../../../Menus"
 @onready var bag: Control = $"../../../../../../.."
 @onready var player: CharacterBody3D = $"../../../../../../../../../../Player"
 @onready var held: CanvasLayer = $"../../../../../../SubViewportContainer2/SubViewport2/Held"
+@onready var model: MeshInstance3D = $MeshInstance3D
 
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')

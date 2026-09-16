@@ -17,12 +17,10 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("bag"):
-		if get_tree().paused:
-			print("unpaused")
-			visible = false
-			get_tree().paused = false
+		print("unpaused")
+		if self.visible == false:
+			menuopen = true
+			self.visible = menuopen		
 		else:
-			print("HEY!")
-			visible = true
-			get_tree().paused = true
-		
+			menuopen = false
+			self.visible = menuopen	

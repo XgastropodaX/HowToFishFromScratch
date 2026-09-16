@@ -1,8 +1,8 @@
 extends CanvasLayer
-@onready var goji: RigidBody3D = $"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji"
 @onready var bag: Control = $"../../../.."
 @onready var player: CharacterBody3D = $"../../../../../../../Player"
-var scene = preload("res://spatial.tscn")
+const GOJI_SCENE = preload("res://spatial.tscn")
+const CUBE_SCENE = preload("res://spatial_2.tscn")
 @export var Held_Object: PackedScene
 
 var items_state = items.HAHA
@@ -18,6 +18,7 @@ enum items {
 #search a folder for the specific object in question
 
 func change_item(state_name: String) -> void:
+		get_tree().call_group("held", "queue_free")
 		print("change state")
 		var upper_name = state_name.to_upper()
 		
@@ -26,13 +27,19 @@ func change_item(state_name: String) -> void:
 			print(items_state)
 		match items_state:
 			0:
-				print("None")
-				#var instance = scene.instantiate()
-				#add_child(instance)
+				print("none")
 			1:
 				print("Goji")
+				var instance = GOJI_SCENE.instantiate()
+				$Held/Camera3D.add_child(instance)
+				instance.global_position = $Held/Camera3D/CameraMarker.global_position
+				instance.add_to_group("held")
 			2:
 				print("Cuob")
+				var instance = CUBE_SCENE.instantiate()
+				$Held/Camera3D.add_child(instance)
+				instance.global_position = $Held/Camera3D/CameraMarker.global_position
+				instance.add_to_group("held")
 			_:
 				print("nothin")
 
