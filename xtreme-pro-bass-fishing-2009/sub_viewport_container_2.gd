@@ -12,6 +12,3 @@ func _on_gui_input(event: InputEvent) -> void:
 	$SubViewport2.handle_input_locally = true
 	
 	$SubViewport2.push_input(event)
-
-	# This line is a hack, that needs to be removed after https://github.com/godotengine/godot/pull/77926 gets merged
-	$SubViewport2.handle_input_locally = false

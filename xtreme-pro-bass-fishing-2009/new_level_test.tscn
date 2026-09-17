@@ -20,10 +20,8 @@ size = Vector3(3.802246, 1.6850586, 3)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.6608095, 2.0920439, 2.7624326)
 
 [node name="Inventory" parent="GameManager" unique_id=1083433282 instance=ExtResource("4_0cbvj")]
-process_mode = 3
 
 [node name="Menus" parent="GameManager" unique_id=273361858 instance=ExtResource("3_xxrkp")]
-process_mode = 3
 
 [node name="Testbroom" parent="." unique_id=917482156 instance=ExtResource("3_0cbvj")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

@@ -28,51 +28,52 @@ size = Vector3(1.329956, 1.9472046, 3.1731873)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ho8i8"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=1083433282]
+layer = 1000
 
-[node name="Bag" type="CanvasLayer" parent="." unique_id=883266465]
-
-[node name="Bag" type="Control" parent="Bag" unique_id=279997884]
+[node name="Bag" type="Control" parent="." unique_id=279997884]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ho8i8")
 
-[node name="ColorRect" type="ColorRect" parent="Bag/Bag" unique_id=720603285]
+[node name="ColorRect" type="ColorRect" parent="Bag" unique_id=720603285]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 1054.0
 offset_bottom = 621.0
+mouse_filter = 2
 color = Color(7.3700214e-08, 0.114559196, 0.062176242, 0.36078432)
 
-[node name="TextureRect" type="TextureRect" parent="Bag/Bag" unique_id=449818647]
+[node name="TextureRect" type="TextureRect" parent="Bag" unique_id=449818647]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 561.0
-offset_top = 126.0
-offset_right = 1107.0
-offset_bottom = 863.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.5, 0.5)
+offset_left = 609.0
+offset_top = 289.0
+offset_right = 609.0
+offset_bottom = 481.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
 texture = ExtResource("2_ormsd")
 
-[node name="GridContainer" type="GridContainer" parent="Bag/Bag" unique_id=1992624039]
+[node name="GridContainer" type="GridContainer" parent="Bag" unique_id=1992624039]
 layout_mode = 1
 offset_right = 891.0
 offset_bottom = 652.0
 columns = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Bag/Bag/GridContainer" unique_id=1285259893]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Bag/GridContainer" unique_id=1285259893]
 layout_mode = 2
 script = ExtResource("3_ormsd")
 
-[node name="SubViewport" type="SubViewport" parent="Bag/Bag/GridContainer/SubViewportContainer" unique_id=2109033612]
+[node name="SubViewport" type="SubViewport" parent="Bag/GridContainer/SubViewportContainer" unique_id=2109033612]
 handle_input_locally = false
 audio_listener_enable_3d = true
 physics_object_picking = true
@@ -81,64 +82,64 @@ physics_object_picking_first_only = true
 size = Vector2i(545, 652)
 render_target_update_mode = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport" unique_id=658943313]
+[node name="CanvasLayer" type="CanvasLayer" parent="Bag/GridContainer/SubViewportContainer/SubViewport" unique_id=658943313]
 
-[node name="world" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1454898785]
+[node name="world" type="Node3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1454898785]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.875368, 0, 0)
 script = ExtResource("3_ho8i8")
 
-[node name="walls" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=270920400]
+[node name="walls" type="Node3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=270920400]
 
-[node name="floor" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1947122771]
+[node name="floor" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1947122771]
 transform = Transform3D(10.812698, 0, 0, 0, 1, 0, 0, 0, 11.187109, 0, -16.567322, 0)
 mesh = SubResource("BoxMesh_8xn2g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor" unique_id=150319547]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor" unique_id=150319547]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor/StaticBody3D" unique_id=582853725]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor/StaticBody3D" unique_id=582853725]
 shape = SubResource("BoxShape3D_b541n")
 
-[node name="floor2" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1301725731]
+[node name="floor2" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1301725731]
 transform = Transform3D(10.812698, 0, 0, 0, 1, 0, 0, 0, 11.187109, 0, -4.6879606, 0)
 mesh = SubResource("BoxMesh_8xn2g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor2" unique_id=1558598294]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor2" unique_id=1558598294]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor2/StaticBody3D" unique_id=1528244474]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/floor2/StaticBody3D" unique_id=1528244474]
 shape = SubResource("BoxShape3D_b541n")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=141091589]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=141091589]
 transform = Transform3D(-9.397271e-08, 0, 11.187108, 0, 12.951118, 0, -2.149845, 0, -4.8900404e-07, -0.13626671, -11.069818, -5.593276)
 mesh = SubResource("BoxMesh_8xn2g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D2" unique_id=933989090]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D2" unique_id=933989090]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D2/StaticBody3D" unique_id=1396099275]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D2/StaticBody3D" unique_id=1396099275]
 shape = SubResource("BoxShape3D_n787p")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=483116818]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=483116818]
 transform = Transform3D(-2.149845, 0, -9.780081e-07, 0, 12.951118, 0, 1.8794542e-07, 0, -11.187108, -6.9146442, -11.069818, -1.0867581)
 mesh = SubResource("BoxMesh_8xn2g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D3" unique_id=674342819]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D3" unique_id=674342819]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D3/StaticBody3D" unique_id=477035224]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D3/StaticBody3D" unique_id=477035224]
 shape = SubResource("BoxShape3D_6a2vb")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1838976334]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls" unique_id=1838976334]
 transform = Transform3D(-2.149845, 0, -9.780081e-07, 0, 12.951118, 0, 1.8794542e-07, 0, -11.187108, 6.205349, -11.069818, -1.0867581)
 mesh = SubResource("BoxMesh_8xn2g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D4" unique_id=939192778]
+[node name="StaticBody3D" type="StaticBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D4" unique_id=939192778]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D4/StaticBody3D" unique_id=169680738]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/walls/MeshInstance3D4/StaticBody3D" unique_id=169680738]
 shape = SubResource("BoxShape3D_t4mou")
 
-[node name="boxes" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=2111125323]
+[node name="boxes" type="Node3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=2111125323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.531912, 0)
 
-[node name="Goji" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=17645769]
+[node name="Goji" type="RigidBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=17645769]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.545176, 0)
 script = ExtResource("5_udyo3")
 metadata/Dialogue = "start"
@@ -148,15 +149,15 @@ metadata/Name = "Goji"
 metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn "
 metadata/State = "Goji"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=1174970311]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=1174970311]
 transform = Transform3D(0.9999999, 0.0003196073, 0.0003487493, -0.0003205292, 0.9999964, 0.0026635216, -0.0003479022, -0.0026636324, 0.9999964, -0.030311584, 0.6180725, 0.52326035)
 shape = SubResource("BoxShape3D_a8ig1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=2136873071]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=2136873071]
 transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.49666476, 1.0621595)
 mesh = ExtResource("4_udyo3")
 
-[node name="Cube" type="RigidBody3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=1366205838]
+[node name="Cube" type="RigidBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=1366205838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3597832, -15.545176, 0)
 script = ExtResource("5_udyo3")
 metadata/Dialogue = "start"
@@ -166,50 +167,60 @@ metadata/Name = "Cube"
 metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn "
 metadata/State = "Cube"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1732912887]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1732912887]
 mesh = SubResource("BoxMesh_ho8i8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1052332737]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1052332737]
 shape = SubResource("BoxShape3D_ho8i8")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=1562566180]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=1562566180]
 transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68194723, -6.6797314, -12.816972, 2.6246598)
 
-[node name="Head" parent="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=889747555 instance=ExtResource("5_a8ig1")]
+[node name="Head" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=889747555 instance=ExtResource("5_a8ig1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.519323, 4.6451473)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Bag/Bag/GridContainer" unique_id=1465085741]
+[node name="Button" type="Button" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=866337099]
+process_mode = 3
+offset_left = 289.0
+offset_top = 134.0
+offset_right = 514.0
+offset_bottom = 226.0
+button_mask = 7
+text = "fuck"
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Bag/GridContainer" unique_id=1465085741]
 layout_mode = 2
 script = ExtResource("8_ho8i8")
 
-[node name="SubViewport2" type="SubViewport" parent="Bag/Bag/GridContainer/SubViewportContainer2" unique_id=883046224]
+[node name="SubViewport2" type="SubViewport" parent="Bag/GridContainer/SubViewportContainer2" unique_id=883046224]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(342, 642)
 render_target_update_mode = 4
 
-[node name="Held" type="CanvasLayer" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2" unique_id=1988894530]
+[node name="Held" type="CanvasLayer" parent="Bag/GridContainer/SubViewportContainer2/SubViewport2" unique_id=1988894530]
 script = ExtResource("9_ho8i8")
 
-[node name="Held" type="Node3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" unique_id=57111950]
+[node name="Held" type="Node3D" parent="Bag/GridContainer/SubViewportContainer2/SubViewport2/Held" unique_id=57111950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.217087, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=1709360069]
+[node name="Camera3D" type="Camera3D" parent="Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=1709360069]
 transform = Transform3D(1, 0, 0, 0, 0.96675205, 0.25571576, 0, -0.25571576, 0.96675205, 0, -12.883211, 4.431341)
 current = true
 
-[node name="CameraMarker" type="Marker3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held/Camera3D" unique_id=682848575]
+[node name="CameraMarker" type="Marker3D" parent="Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held/Camera3D" unique_id=682848575]
 transform = Transform3D(-2.149845, 0, -9.780081e-07, -4.8060606e-08, 12.520519, 2.8607187, 1.8169658e-07, 3.3118048, -10.815157, -0.060352325, -0.20008564, -5.7607994)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=943756769]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/GridContainer/SubViewportContainer2/SubViewport2/Held/Held" unique_id=943756769]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, -15.388062, 0)
 shadow_enabled = true
 
-[connection signal="gui_input" from="Bag/Bag/GridContainer/SubViewportContainer" to="Bag/Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
-[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_input_event"]
-[connection signal="mouse_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_exited"]
-[connection signal="input_event" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_input_event"]
-[connection signal="mouse_entered" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_exited"]
-[connection signal="gui_input" from="Bag/Bag/GridContainer/SubViewportContainer2" to="Bag/Bag/GridContainer/SubViewportContainer2" method="_on_gui_input"]
+[connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer" to="Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
+[connection signal="input_event" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_exited"]
+[connection signal="input_event" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_input_event"]
+[connection signal="mouse_entered" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_exited"]
+[connection signal="pressed" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/Button" to="Bag" method="_on_button_pressed"]
+[connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer2" to="Bag/GridContainer/SubViewportContainer2" method="_on_gui_input"]

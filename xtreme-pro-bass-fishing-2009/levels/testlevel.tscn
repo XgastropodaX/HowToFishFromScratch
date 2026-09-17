@@ -29,6 +29,7 @@ process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15529919, 0, 0)
 
 [node name="Inventory" parent="GameManager" unique_id=1083433282 instance=ExtResource("3_l0kak")]
+layer = 10
 
 [node name="Menus" parent="GameManager" unique_id=273361858 instance=ExtResource("3_8j3fl")]
 

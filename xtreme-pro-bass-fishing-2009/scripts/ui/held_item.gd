@@ -1,9 +1,9 @@
 extends CanvasLayer
 @onready var bag: Control = $"../../../.."
-@onready var player: CharacterBody3D = $"../../../../../../../Player"
 const GOJI_SCENE = preload("res://spatial.tscn")
 const CUBE_SCENE = preload("res://spatial_2.tscn")
 @export var Held_Object: PackedScene
+@onready var player: CharacterBody3D = $"../../../../../../Player"
 
 var items_state = items.HAHA
 

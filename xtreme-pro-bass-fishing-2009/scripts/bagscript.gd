@@ -1,7 +1,6 @@
 extends Control
 @onready var menuopen = false 
 @onready var bag: Control = $"."
-
 @onready var selected_item = ""
 
 
@@ -24,3 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			menuopen = false
 			self.visible = menuopen	
+
+
+func _on_button_pressed() -> void:
+	print("helloworld")

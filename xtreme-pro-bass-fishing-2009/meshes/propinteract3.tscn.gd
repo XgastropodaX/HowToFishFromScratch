@@ -9,6 +9,7 @@ extends Area3D
 @onready var game_manager: Node = $"../../../GameManager"
 @export var highlight_material: Material
 
+
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')
 var materials: Array[StandardMaterial3D]

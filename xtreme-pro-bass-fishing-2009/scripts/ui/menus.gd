@@ -12,21 +12,21 @@ enum MenuState {
 	Dialogue
 }
 
-@onready var PlayerState = MenuState.Closed
-var dialogue_running = false
+#@onready var PlayerState = MenuState.Closed
+#var dialogue_running = false
 
-func setmenustate()-> void:
-	match [PlayerState, dialogue_running]:
-		MenuState.Closed:
-			print("nothing")
-		MenuState.Pause:
-			print("pause")
-		MenuState.History:
-			print("history")
-		MenuState.Bag:
-			print("Bag")
-		MenuState.Dialogue:
-			print("Talkin")
+#func setmenustate()-> void:
+	#match [PlayerState, dialogue_running]:
+		#MenuState.Closed:
+			#print("nothing")
+		#MenuState.Pause:
+			#print("pause")
+		#MenuState.History:
+			#print("history")
+		#MenuState.Bag:
+			#print("Bag")
+		#MenuState.Dialogue:
+			#print("Talkin")
 
 
 

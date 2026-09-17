@@ -4,11 +4,13 @@ extends RigidBody3D
 @onready var click_distance = get_meta("Click_Distance")
 @onready var highlight = false
 @onready var game_manager: Node = $"../../../../../../../../../.."
-@onready var menus: CanvasLayer = $"../../../../../../../../../../Menus"
-@onready var bag: Control = $"../../../../../../.."
-@onready var player: CharacterBody3D = $"../../../../../../../../../../Player"
 @onready var held: CanvasLayer = $"../../../../../../SubViewportContainer2/SubViewport2/Held"
 @onready var model: MeshInstance3D = $MeshInstance3D
+@onready var player: CharacterBody3D = $"../../../../../../../../../Player"
+@onready var menus: CanvasLayer = $"../../../../../../../../../Menus"
+
+@onready var bag: Control = $"../../../../../../.."
+
 
 var highlight_mat: StandardMaterial3D = \
 	preload('res://materials/2new_standard_material_3d.tres')
@@ -29,7 +31,7 @@ func connection():
 func toggle_highlight(on: bool):
 	if on:
 		highlight = true
-		distance = abs((model.global_position.x - $"../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../Player".global_position.z))
+		distance = abs((model.global_position.x - $"../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
@@ -43,7 +45,7 @@ func toggle_highlight(on: bool):
 func check_highlight():
 	if highlight:
 		print("highlight")
-		distance = abs((model.global_position.x - $"../../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../../Player".global_position.z))
+		distance = abs((model.global_position.x - $"../../../../../../../../../Player".global_position.x)) + abs((model.global_position.z - $"../../../../../../../../../Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for i in materials.size():
