@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://cejfx1ianp2vm" path="res://scripts/bagscript.gd" id="1_ho8i8"]
 [ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="2_ormsd"]
 [ext_resource type="Script" uid="uid://b67c6ucj1dwco" path="res://main.gd" id="3_ho8i8"]
-[ext_resource type="Script" uid="uid://bwgo63psch02l" path="res://sub_viewport_container.gd" id="3_ormsd"]
 [ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="4_udyo3"]
 [ext_resource type="PackedScene" uid="uid://dkkb67cgp7fpg" path="res://player/baghead.tscn" id="5_a8ig1"]
 [ext_resource type="Script" uid="uid://b1mquytkfp65t" path="res://rigidinteraction.gd" id="5_udyo3"]
-[ext_resource type="Script" uid="uid://pmdntob11b6y" path="res://sub_viewport_container_2.gd" id="8_ho8i8"]
 [ext_resource type="Script" uid="uid://yndsexnxuy5f" path="res://scripts/ui/held_item.gd" id="9_ho8i8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8xn2g"]
@@ -71,7 +69,6 @@ columns = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Bag/GridContainer" unique_id=1285259893]
 layout_mode = 2
-script = ExtResource("3_ormsd")
 
 [node name="SubViewport" type="SubViewport" parent="Bag/GridContainer/SubViewportContainer" unique_id=2109033612]
 handle_input_locally = false
@@ -179,18 +176,8 @@ transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68
 [node name="Head" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=889747555 instance=ExtResource("5_a8ig1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.519323, 4.6451473)
 
-[node name="Button" type="Button" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer" unique_id=866337099]
-process_mode = 3
-offset_left = 289.0
-offset_top = 134.0
-offset_right = 514.0
-offset_bottom = 226.0
-button_mask = 7
-text = "fuck"
-
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Bag/GridContainer" unique_id=1465085741]
 layout_mode = 2
-script = ExtResource("8_ho8i8")
 
 [node name="SubViewport2" type="SubViewport" parent="Bag/GridContainer/SubViewportContainer2" unique_id=883046224]
 transparent_bg = true
@@ -215,6 +202,56 @@ transform = Transform3D(-2.149845, 0, -9.780081e-07, -4.8060606e-08, 12.520519, 
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, -15.388062, 0)
 shadow_enabled = true
 
+[node name="Buttons" type="CanvasLayer" parent="Bag" unique_id=711583662]
+layer = 100000
+
+[node name="Control" type="Control" parent="Bag/Buttons" unique_id=142763115]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Bag/Buttons/Control" unique_id=1867275125]
+layout_mode = 0
+offset_left = 869.0
+offset_top = 261.0
+offset_right = 1049.0
+offset_bottom = 301.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bag/Buttons/Control/PanelContainer" unique_id=1102492145]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bag/Buttons/Control/PanelContainer/VBoxContainer" unique_id=207665888]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer" unique_id=866337099]
+process_mode = 3
+layout_mode = 2
+button_mask = 7
+text = "fuck"
+
+[node name="Button2" type="Button" parent="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1115640402]
+process_mode = 3
+layout_mode = 2
+button_mask = 7
+text = "fuck"
+
+[node name="Button3" type="Button" parent="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer" unique_id=757488545]
+process_mode = 3
+layout_mode = 2
+button_mask = 7
+text = "fuck"
+
+[node name="Button4" type="Button" parent="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer" unique_id=676889957]
+process_mode = 3
+layout_mode = 2
+button_mask = 7
+text = "fuck"
+
 [connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer" to="Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
 [connection signal="input_event" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_input_event"]
 [connection signal="mouse_entered" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" method="_on_mouse_entered"]
@@ -222,5 +259,8 @@ shadow_enabled = true
 [connection signal="input_event" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_input_event"]
 [connection signal="mouse_entered" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_exited"]
-[connection signal="pressed" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/Button" to="Bag" method="_on_button_pressed"]
 [connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer2" to="Bag/GridContainer/SubViewportContainer2" method="_on_gui_input"]
+[connection signal="pressed" from="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer/Button" to="Bag" method="_on_button_pressed"]
+[connection signal="pressed" from="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer/Button2" to="Bag" method="_on_button_pressed"]
+[connection signal="pressed" from="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer/Button3" to="Bag" method="_on_button_pressed"]
+[connection signal="pressed" from="Bag/Buttons/Control/PanelContainer/VBoxContainer/HBoxContainer/Button4" to="Bag" method="_on_button_pressed"]
