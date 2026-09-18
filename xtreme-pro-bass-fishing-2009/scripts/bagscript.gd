@@ -29,6 +29,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			self.visible = menuopen	
 
 
-func _on_button_pressed() -> void:
-	game_manager.dialogue("res://Dialogue/MenuBallon/balloon.tscn","res://Dialogue/writing/lovelyRoom1.dialogue","goji_taste",self)
 	
+
+
+func _on_listen_pressed() -> void:
+	pass # Replace with function body.

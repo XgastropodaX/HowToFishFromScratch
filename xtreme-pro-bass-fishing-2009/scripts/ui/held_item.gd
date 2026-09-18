@@ -5,6 +5,8 @@ const CUBE_SCENE = preload("res://spatial_2.tscn")
 @export var Held_Object: PackedScene
 @onready var player: CharacterBody3D = $"../../../../../../Player"
 
+
+
 var items_state = items.HAHA
 
 enum items {
@@ -21,6 +23,7 @@ func change_item(state_name: String) -> void:
 		get_tree().call_group("held", "queue_free")
 		print("change state")
 		var upper_name = state_name.to_upper()
+		
 		
 		if upper_name in items:
 			items_state = items.get(upper_name)
@@ -51,3 +54,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_taste_pressed() -> void:
+	pass # Replace with function body.

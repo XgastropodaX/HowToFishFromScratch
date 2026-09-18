@@ -8,8 +8,8 @@ extends RigidBody3D
 @onready var model: MeshInstance3D = $MeshInstance3D
 @onready var player: CharacterBody3D = $"../../../../../../../../../Player"
 @onready var menus: CanvasLayer = $"../../../../../../../../../Menus"
-
 @onready var bag: Control = $"../../../../../../.."
+@onready var senses: Control = $"../../../../../../../Buttons/Senses"
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -61,6 +61,11 @@ func check_highlight():
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event.is_action("click") and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable and not event.is_echo():
 		held.change_item(get_meta("State"))
+		senses.BALLOON = get_meta("Balloon")
+		senses.SCRIPT = get_meta("Script")
+		senses.DIALOGUE = get_meta("Dialogue")
+
+
 
 
 
