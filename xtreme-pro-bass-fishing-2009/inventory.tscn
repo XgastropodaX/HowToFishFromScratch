@@ -140,11 +140,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.531912, 0)
 [node name="Goji" type="RigidBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=17645769]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.545176, 0)
 script = ExtResource("5_udyo3")
-metadata/Dialogue = "Goji"
+metadata/Dialogue = "goji"
 metadata/Click_Distance = 40
-metadata/Script = "res://Dialogue/writing/test.dialogue"
-metadata/Name = "Goji"
-metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn "
+metadata/Script = "res://Dialogue/writing/lovelyRoom1.dialogue"
+metadata/Name = "goji"
+metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
 metadata/State = "Goji"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Goji" unique_id=1174970311]

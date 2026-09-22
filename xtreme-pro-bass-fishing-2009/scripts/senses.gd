@@ -21,7 +21,7 @@ func _on_taste_pressed() -> void:
 	print(BALLOON)
 	print(SCRIPT)
 	print(DIALOGUE)
-	game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE+"_look",self)
+	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_taste",self)
 
 
 #func _on_smell_pressed() -> void:

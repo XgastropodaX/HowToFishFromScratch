@@ -1,11 +1,11 @@
 ~ goji_taste
-Nathan: HIHIHIHHIU
-Nathan: Here are some choices.
+Lovely: HIHIHIHHIU
+Lovely: Here are some choices.
 - First one
-	Nathan: You picked the first one.
+	Lovely: You picked the first one.
 - Second one
-	Nathan: You picked the second one.
+	Lovely: You picked the second one.
 - Start again => goji_taste
 - End the conversation => END
-Nathan: For more information see the online documentation.
+Lovely: For more information see the online documentation.
 => END
