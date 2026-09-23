@@ -18,19 +18,16 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_taste_pressed() -> void:
-	print(BALLOON)
-	print(SCRIPT)
-	print(DIALOGUE)
 	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_taste",self)
 
 
-#func _on_smell_pressed() -> void:
-	#game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE+"_feel",self)
-#
-#
-#func _on_touch_pressed() -> void:
-	#game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE+"_feel",self)
-#
-#
-#func _on_listen_pressed() -> void:
-	#game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE+"_feel",self)
+func _on_smell_pressed() -> void:
+	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_smell",self)
+
+
+func _on_touch_pressed() -> void:
+	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_touch",self)
+
+
+func _on_listen_pressed() -> void:
+	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_listen",self)

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cv2jpyxs3i27g"]
+
+[ext_resource type="Script" uid="uid://b1mquytkfp65t" path="res://rigidinteraction.gd" id="1_lqs87"]
+[ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="2_js73h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8ig1"]
+size = Vector3(1.329956, 1.9472046, 3.1731873)
+
+[node name="Goji" type="RigidBody3D" unique_id=157062872]
+script = ExtResource("1_lqs87")
+metadata/Dialogue = "goji"
+metadata/Click_Distance = 40
+metadata/Script = "res://Dialogue/writing/lovelyRoom1.dialogue"
+metadata/Name = "goji"
+metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
+metadata/State = "Goji"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1290164675]
+transform = Transform3D(0.9999999, 0.0003196073, 0.0003487493, -0.0003205292, 0.9999964, 0.0026635216, -0.0003479022, -0.0026636324, 0.9999964, -0.030311584, 0.6180725, 0.52326035)
+shape = SubResource("BoxShape3D_a8ig1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=231334924]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.49666476, 1.0621595)
+mesh = ExtResource("2_js73h")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

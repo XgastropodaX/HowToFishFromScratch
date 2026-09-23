@@ -5,7 +5,7 @@ const CUBE_SCENE = preload("res://spatial_2.tscn")
 @export var Held_Object: PackedScene
 @onready var player: CharacterBody3D = $"../../../../../../Player"
 
-
+const goji_item = preload("res://items/goji.tscn")
 
 var items_state = items.HAHA
 
@@ -15,7 +15,16 @@ enum items {
 	CUBE
 }
 
+func spawn_inventory():
+	if items.has("GOJI"):
+		var instance = goji_item.instantiate()
+		$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
+		instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position
+		instance.add_to_group("inventory")
 
+func kill_inventory():
+	get_tree().call_group("inventory", "queue_free")
+	
 
 #search a folder for the specific object in question
 

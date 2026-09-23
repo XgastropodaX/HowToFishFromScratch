@@ -1,11 +1,29 @@
 ~ goji_taste
-Lovely: HIHIHIHHIU
-Lovely: Here are some choices.
-- First one
-	Lovely: You picked the first one.
-- Second one
-	Lovely: You picked the second one.
-- Start again => goji_taste
-- End the conversation => END
-Lovely: For more information see the online documentation.
+It Tastes like plastic I think.
+=> END
+~ goji_smell
+smells plasticy and kind of burnt. Wherever I picked this up must have experienced a fire. Sad.
+=> END
+~ goji_touch
+The spikes on his back look sharp, but are actually super bendy.
+=> END
+~ goji_listen
+It makes no sound. But It would be cool if it yelled when I squeezed it. 
+=> END
+
+
+
+
+
+~ cube_taste
+It Tastes like cube
+=> END
+~ cube_smell
+It Smells like cube.
+=> END
+~ cube_touch
+It Touches Like Cube
+=> END
+~ cube_listen
+It Listens LIke Cube
 => END
