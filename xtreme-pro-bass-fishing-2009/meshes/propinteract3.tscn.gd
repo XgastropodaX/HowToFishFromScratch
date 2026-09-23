@@ -8,6 +8,8 @@ extends Area3D
 @onready var player: CharacterBody3D = $"../../../GameManager/Player"
 @onready var game_manager: Node = $"../../../GameManager"
 @export var highlight_material: Material
+@onready var inventory: CanvasLayer = $"../../../GameManager/Inventory"
+@onready var held: CanvasLayer = $Bag/GridContainer/SubViewportContainer2/SubViewport2/Held
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -71,6 +73,7 @@ func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, n
 		var SCRIPT = load(get_meta("Script"))
 		var DIALOGUE = get_meta("Dialogue")
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
+		$Bag/GridContainer/SubViewportContainer2/SubViewport2/Held.inventory.add_item("item", get_meta("Name"))
 
 
 func _on_mouse_entered() -> void:

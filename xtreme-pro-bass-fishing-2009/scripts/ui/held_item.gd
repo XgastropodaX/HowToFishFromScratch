@@ -6,21 +6,39 @@ const CUBE_SCENE = preload("res://spatial_2.tscn")
 @onready var player: CharacterBody3D = $"../../../../../../Player"
 
 const goji_item = preload("res://items/goji.tscn")
+const cube_item = preload("res://items/cube.tscn")
 
-var items_state = items.HAHA
+var items_state = items.NONE
 
 enum items {
-	HAHA,
+	NONE,
 	GOJI,
 	CUBE
 }
 
+var inventory = {}
+
+func add_item(key:String, value:String):
+	inventory.set(key, value)
+
+
 func spawn_inventory():
-	if items.has("GOJI"):
-		var instance = goji_item.instantiate()
-		$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
-		instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position
-		instance.add_to_group("inventory")
+	for inventory_item in inventory:
+		match inventory:
+			{"item": "goji", ..}:
+				var instance = goji_item.instantiate()
+				$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
+				instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position
+				instance.add_to_group("inventory")
+				await get_tree().create_timer(0.3).timeout
+			{"type": "cube", ..}:
+				var instance = cube_item.instantiate()
+				$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
+				instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position
+				instance.add_to_group("inventory")
+				await get_tree().create_timer(0.2).timeout
+			_:
+				print("you fucked it up!")
 
 func kill_inventory():
 	get_tree().call_group("inventory", "queue_free")

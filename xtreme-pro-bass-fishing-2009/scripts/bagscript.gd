@@ -30,10 +30,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			menuopen = false
 			buttons.visible = false
 			self.visible = menuopen	
-
-
-	
-
-
-func _on_listen_pressed() -> void:
-	pass # Replace with function body.

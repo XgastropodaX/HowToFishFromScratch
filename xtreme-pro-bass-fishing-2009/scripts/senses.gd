@@ -17,6 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func _on_taste_pressed() -> void:
 	game_manager.dialogue(load(BALLOON),load(SCRIPT),DIALOGUE+"_taste",self)
 

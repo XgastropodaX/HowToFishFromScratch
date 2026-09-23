@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bur4mad4b5gjk"]
+
+[ext_resource type="Script" uid="uid://b1mquytkfp65t" path="res://rigidinteraction.gd" id="1_803gc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ho8i8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ho8i8"]
+
+[node name="Cube" type="RigidBody3D" unique_id=1138237646]
+script = ExtResource("1_803gc")
+metadata/Dialogue = "cube"
+metadata/Click_Distance = 40
+metadata/Script = "res://Dialogue/writing/lovelyRoom1.dialogue"
+metadata/Name = "cube"
+metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
+metadata/State = "Cube"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2110613139]
+mesh = SubResource("BoxMesh_ho8i8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=357646240]
+shape = SubResource("BoxShape3D_ho8i8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c7vkfwbc0nwmd" path="res://assets/ui/handtest.png" id="2_ormsd"]
 [ext_resource type="Script" uid="uid://b67c6ucj1dwco" path="res://main.gd" id="3_ho8i8"]
 [ext_resource type="PackedScene" uid="uid://dkkb67cgp7fpg" path="res://player/baghead.tscn" id="5_a8ig1"]
-[ext_resource type="PackedScene" uid="uid://cv2jpyxs3i27g" path="res://items/goji.tscn" id="5_ormsd"]
-[ext_resource type="Script" uid="uid://b1mquytkfp65t" path="res://rigidinteraction.gd" id="5_udyo3"]
 [ext_resource type="Script" uid="uid://dkt7kjur5tjti" path="res://scripts/senses.gd" id="8_ormsd"]
 [ext_resource type="Script" uid="uid://yndsexnxuy5f" path="res://scripts/ui/held_item.gd" id="9_ho8i8"]
 
@@ -18,10 +16,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a2vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4mou"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ho8i8"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ho8i8"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=1083433282]
 layer = 1000
@@ -134,24 +128,6 @@ shape = SubResource("BoxShape3D_t4mou")
 [node name="boxes" type="Node3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=2111125323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.531912, 0)
 
-[node name="Cube" type="RigidBody3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=1366205838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3597832, -15.545176, 0)
-script = ExtResource("5_udyo3")
-metadata/Dialogue = "cube"
-metadata/Click_Distance = 40
-metadata/Script = "res://Dialogue/writing/lovelyRoom1.dialogue"
-metadata/Name = "cube"
-metadata/Balloon = "res://Dialogue/MenuBallon/balloon.tscn"
-metadata/State = "Cube"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1732912887]
-mesh = SubResource("BoxMesh_ho8i8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" unique_id=1052332737]
-shape = SubResource("BoxShape3D_ho8i8")
-
-[node name="Goji" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes" unique_id=157062872 instance=ExtResource("5_ormsd")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world" unique_id=1562566180]
 transform = Transform3D(1, 0, 0, 0, -0.68194723, 0.7314014, 0, -0.7314014, -0.68194723, -6.6797314, -12.816972, 2.6246598)
 
@@ -239,9 +215,6 @@ button_mask = 7
 text = "listen"
 
 [connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer" to="Bag/GridContainer/SubViewportContainer" method="_on_gui_input"]
-[connection signal="input_event" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_input_event"]
-[connection signal="mouse_entered" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" to="Bag/GridContainer/SubViewportContainer/SubViewport/CanvasLayer/world/boxes/Cube" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Bag/GridContainer/SubViewportContainer2" to="Bag/GridContainer/SubViewportContainer2" method="_on_gui_input"]
 [connection signal="pressed" from="Bag/Buttons/Senses/PanelContainer/VBoxContainer/HBoxContainer/Taste" to="Bag/Buttons/Senses" method="_on_taste_pressed"]
 [connection signal="pressed" from="Bag/Buttons/Senses/PanelContainer/VBoxContainer/HBoxContainer/Smell" to="Bag/Buttons/Senses" method="_on_smell_pressed"]
