@@ -32,7 +32,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 #Record the speaker's name and the text associated in a dictionary of arrays.
 var history: Array = []	
 #Records the name of the item from the metadata so it can be displayed in the hud
-
+var inventory: Array = []
 
 func _process(delta: float) -> void:
 	pass
@@ -52,6 +52,11 @@ func dialogue(balloon,script,text,interactable):
 	dialogue_interactor = interactable
 	balloon_node.dialogue_change_signal.connect(dialogue_change)
 	balloon_node.exterior_change_signal.connect(exterior_change)
+
+func get_item(item: String, type: String, object: Node3D):
+	inventory.append({"item": item, "type": type})
+	var dave_matthews = object
+	get_node(dave_matthews).queue_free()
 
 
 func exterior_change(change):

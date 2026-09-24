@@ -16,22 +16,18 @@ enum items {
 	CUBE
 }
 
-var inventory = {}
-
-func add_item(key:String, value:String):
-	inventory.set(key, value)
 
 
 func spawn_inventory():
-	for inventory_item in inventory:
-		match inventory:
-			{"item": "goji", ..}:
+	for inventory_item in GameManager.inventory:
+		match inventory_item.get("item"):
+			"goji":
 				var instance = goji_item.instantiate()
 				$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
 				instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position
 				instance.add_to_group("inventory")
 				await get_tree().create_timer(0.3).timeout
-			{"type": "cube", ..}:
+			{"item": "cube", ..}:
 				var instance = cube_item.instantiate()
 				$"../../../SubViewportContainer/SubViewport/CanvasLayer/world/boxes".add_child(instance)
 				instance.global_position = $"../../../SubViewportContainer/SubViewport/CanvasLayer/spawnmarker".global_position

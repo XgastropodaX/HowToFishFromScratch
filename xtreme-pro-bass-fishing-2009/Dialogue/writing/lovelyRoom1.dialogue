@@ -9,10 +9,18 @@ The spikes on his back look sharp, but are actually super bendy.
 => END
 ~ goji_listen
 It makes no sound. But It would be cool if it yelled when I squeezed it. 
+
+
+
+~ goji
+This is a pretty cool little statue guy.
+
+Do you want to pick it up?
+ - Yes 
+	do GameManager.get_item("goji","item")
+ - No
+	
 => END
-
-
-
 
 
 ~ cube_taste

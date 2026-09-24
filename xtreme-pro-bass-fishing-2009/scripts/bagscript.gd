@@ -11,7 +11,7 @@ const TESTLOGUE = preload("uid://bu1ddu8stknkd")
 func _ready() -> void:
 	self.visible = false
 
-
+#Inventory should have categories. items, keyItems, 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

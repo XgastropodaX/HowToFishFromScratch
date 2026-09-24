@@ -1,5 +1,4 @@
 extends Area3D
-@onready var model: MeshInstance3D = $"../Box Spring"
 @onready var distance = 6
 @onready var click_distance = get_meta("Click_Distance")
 @onready var highlight = false
@@ -10,6 +9,8 @@ extends Area3D
 @export var highlight_material: Material
 @onready var inventory: CanvasLayer = $"../../../GameManager/Inventory"
 @onready var held: CanvasLayer = $Bag/GridContainer/SubViewportContainer2/SubViewport2/Held
+
+
 
 
 var highlight_mat: StandardMaterial3D = \
@@ -27,17 +28,14 @@ func _ready() -> void:
 	self.call_deferred("connection")
 	
 func connection():
-	for i in model.get_surface_override_material_count():
-		materials.append(model.get_surface_override_material(i))
 	mouse_entered.connect(toggle_highlight.bind(head, true))
 	mouse_exited.connect(toggle_highlight.bind(head, false))
-	player.movement.connect(check_highlight)
 	
 	
 func toggle_highlight(node: Node, on: bool):
 	if on:
 		highlight = true
-		distance = abs((model.global_position.x - $"../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../GameManager/Player".global_position.z))
+		distance = abs((self.global_position.x - $"../../../GameManager/Player".global_position.x)) + abs((self.global_position.z - $"../../../GameManager/Player".global_position.z))
 		print(distance)
 		if distance < click_distance:
 			for child in node.get_children():
@@ -54,26 +52,15 @@ func toggle_highlight(node: Node, on: bool):
 				child.material_override = og_materials.get(child)
 
 
-func check_highlight():
-	if highlight:
-		print("highlight")
-		distance = abs((model.global_position.x - $"../../../GameManager/Player".global_position.x)) + abs((model.global_position.z - $"../../../GameManager/Player".global_position.z))
-		print(distance)
-		if distance < click_distance:
-			for i in materials.size():
-				model.set_surface_override_material(i, highlight_mat)
-		else:
-			for i in materials.size():
-				model.set_surface_override_material(i, materials[i])
+
 
 func _on_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and distance < click_distance and player.moveable):
-		print("click")
 		var BALLOON = load(get_meta("Balloon"))
 		var SCRIPT = load(get_meta("Script"))
 		var DIALOGUE = get_meta("Dialogue")
 		game_manager.dialogue(BALLOON,SCRIPT,DIALOGUE,self)
-		$Bag/GridContainer/SubViewportContainer2/SubViewport2/Held.inventory.add_item("item", get_meta("Name"))
+
 
 
 func _on_mouse_entered() -> void:

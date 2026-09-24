@@ -8,9 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://c5kvn4s5k34a5" path="res://meshes/LowPolybed.glb" id="6_0cbvj"]
 [ext_resource type="Script" uid="uid://dj86lup4tx745" path="res://meshes/propinteract3.tscn.gd" id="7_nc6ru"]
 [ext_resource type="PackedScene" uid="uid://j4dloejw85ds" path="res://meshes/Nighttable.glb" id="8_5jd1l"]
+[ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="8_soloe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nc6ru"]
-size = Vector3(3.802246, 1.6850586, 3)
+size = Vector3(3.802246, 2.105713, 5.4366455)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7krl"]
+size = Vector3(1, 2.1464844, 2.9355469)
 
 [node name="NewLevelTest" type="Node3D" unique_id=1282608532]
 
@@ -40,8 +44,27 @@ metadata/Balloon = "res://Dialogue/Talking Balloon/balloon.tscn"
 metadata/Name = "My Unmade Bed"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/LowPolybed/Collision" unique_id=67663361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09008789, 0.3425293, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09008896, 0.55285645, 0.024964333)
 shape = SubResource("BoxShape3D_nc6ru")
+
+[node name="Godzilla_O" type="Node3D" parent="Interactables" unique_id=936361811]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.494469, 0.3543129, 5.4026494)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/Godzilla_O" unique_id=216802174]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.017463684, 0.49666476, 1.0621595)
+mesh = ExtResource("8_soloe")
+
+[node name="Collision" type="Area3D" parent="Interactables/Godzilla_O" unique_id=280096323]
+script = ExtResource("7_nc6ru")
+metadata/Dialogue = "goji"
+metadata/Click_Distance = 50
+metadata/Script = "res://Dialogue/writing/lovelyRoom1.dialogue"
+metadata/Name = "goji"
+metadata/Balloon = "res://Dialogue/Talking Balloon/balloon.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/Godzilla_O/Collision" unique_id=1663964681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5732422, 0.9677725)
+shape = SubResource("BoxShape3D_i7krl")
 
 [node name="lights" type="Node3D" parent="." unique_id=1700499967]
 
@@ -55,5 +78,8 @@ transform = Transform3D(-1.7, 0, -1.4861872e-07, 0, 1.7, 0, 1.4861872e-07, 0, -1
 [connection signal="input_event" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_input_event"]
 [connection signal="mouse_entered" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_mouse_exited"]
+[connection signal="input_event" from="Interactables/Godzilla_O/Collision" to="Interactables/Godzilla_O/Collision" method="_on_input_event"]
+[connection signal="mouse_entered" from="Interactables/Godzilla_O/Collision" to="Interactables/Godzilla_O/Collision" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Interactables/Godzilla_O/Collision" to="Interactables/Godzilla_O/Collision" method="_on_mouse_exited"]
 
 [editable path="Interactables/LowPolybed"]
