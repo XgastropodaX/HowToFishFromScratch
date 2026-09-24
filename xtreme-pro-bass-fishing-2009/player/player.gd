@@ -552,6 +552,10 @@ func gibble_interaction(gibble,disable,directions):
 						#$"../../blockades/blockade5".position.y = 0
 						#game_manager.animation_player("close_door","../Doors/Door6","")
 						#$"../../Interactable Characters/Models/Ztra2".queue_free()
+
+
+
+
 ################################################################################
 # Blockade Interactions!
 ################################################################################

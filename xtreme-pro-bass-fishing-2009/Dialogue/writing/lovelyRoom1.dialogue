@@ -17,9 +17,15 @@ This is a pretty cool little statue guy.
 
 Do you want to pick it up?
  - Yes 
-	do GameManager.get_item("goji","item")
+	do GameManager.get_item("goji","item", "Godzilla_O")
+	=> goji_taken
  - No
-	
+[#next=goji_taken]
+=> END
+
+~ goji_taken
+YOU GOT THE GOJI! Put that away quickly before someone sees it and gets jealous! 
+[#next=goji_taken]
 => END
 
 

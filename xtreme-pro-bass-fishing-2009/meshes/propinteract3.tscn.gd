@@ -8,7 +8,7 @@ extends Area3D
 @onready var game_manager: Node = $"../../../GameManager"
 @export var highlight_material: Material
 @onready var inventory: CanvasLayer = $"../../../GameManager/Inventory"
-@onready var held: CanvasLayer = $Bag/GridContainer/SubViewportContainer2/SubViewport2/Held
+
 
 
 

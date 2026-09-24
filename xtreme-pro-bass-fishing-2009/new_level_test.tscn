@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dj86lup4tx745" path="res://meshes/propinteract3.tscn.gd" id="7_nc6ru"]
 [ext_resource type="PackedScene" uid="uid://j4dloejw85ds" path="res://meshes/Nighttable.glb" id="8_5jd1l"]
 [ext_resource type="ArrayMesh" uid="uid://dqdvrs6cce2xh" path="res://lilgoji.tres" id="8_soloe"]
+[ext_resource type="PackedScene" uid="uid://wchuip8v5dhg" path="res://systems/gibble.tscn" id="9_i7krl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nc6ru"]
 size = Vector3(3.802246, 2.105713, 5.4366455)
@@ -74,6 +75,15 @@ light_color = Color(1, 0.8, 0, 1)
 
 [node name="Nighttable" parent="." unique_id=1018333882 instance=ExtResource("8_5jd1l")]
 transform = Transform3D(-1.7, 0, -1.4861872e-07, 0, 1.7, 0, 1.4861872e-07, 0, -1.7, 4.3464785, 0.009122759, 4.283062)
+
+[node name="gibble" parent="." unique_id=19478470 instance=ExtResource("9_i7krl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6411915, 2.0051494, 2.7234936)
+
+[node name="gibble2" parent="." unique_id=1761488857 instance=ExtResource("9_i7krl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6411915, 2.0051494, -1.9617882)
+
+[node name="GibbleZone" type="Node3D" parent="." unique_id=10434479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6411915, 2.0051494, -2.58035)
 
 [connection signal="input_event" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_input_event"]
 [connection signal="mouse_entered" from="Interactables/LowPolybed/Collision" to="Interactables/LowPolybed/Collision" method="_on_mouse_entered"]

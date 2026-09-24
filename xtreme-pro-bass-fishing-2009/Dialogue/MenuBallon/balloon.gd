@@ -9,6 +9,7 @@ signal exterior_change_signal
 
 @onready var player: CharacterBody3D = $GameManager/Player
 
+@onready var ui_character: TextureRect = $Balloon/Character
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -55,6 +56,7 @@ var dialogue_line: DialogueLine:
 		else:
 			# The dialogue has finished so close the balloon
 			if owner == null:
+				print(next_dialogue)
 				dialogue_change_signal.emit(next_dialogue)
 				queue_free()
 			else:
@@ -153,7 +155,14 @@ func apply_dialogue_line() -> void:
 			character_label.text = "[color=#6A66D9]" + tr(dialogue_line.character, "dialogue") + "[/color]"
 		_:
 			character_label.text = tr(dialogue_line.character, "dialogue")
-
+	var ui_character_path: String = "res://Assets/characters/%s.tres" % dialogue_line.get_tag_value("image")
+	if FileAccess.file_exists(ui_character_path):
+		ui_character.texture = load(ui_character_path)
+	else:
+		if dialogue_line.get_tag_value("image") == "NONE":
+			ui_character.texture = null
+	if not dialogue_line.get_tag_value("next") == null:
+		next_dialogue = dialogue_line.get_tag_value("next")
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 
