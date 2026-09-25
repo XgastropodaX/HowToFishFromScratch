@@ -52,27 +52,27 @@ func dialogue(balloon,script,text,interactable):
 	dialogue_interactor = interactable
 	balloon_node.dialogue_change_signal.connect(dialogue_change)
 	balloon_node.exterior_change_signal.connect(exterior_change)
+	balloon_node.kill_dave_matthews.connect(dave_matthews)
 
-func get_item(item: String, type: String, object: String ):
+func get_item(item: String, type: String):
 	inventory.append({"item": item, "type": type})
 
 
 func exterior_change(change):
 	pass
 	
-
-
+################################################################################
+#Dave Matthews
+################################################################################
+func dave_matthews(dave_matthews):
+	print(dave_matthews)
+	get_node(dave_matthews).queue_free()
+	
 ################################################################################
 # Blockade Interactions!
 ################################################################################
 func dialogue_change(next_dialogue):
-	print(next_dialogue)
 	print("hello??!?")
-	dialogue_interactor.set_meta("Dialogue",next_dialogue)
+	if not dialogue_interactor == null:
+		dialogue_interactor.set_meta("Dialogue",next_dialogue)
 	player.moveable = true
-	match next_dialogue:
-		"goji_taken":
-			print("fuckyou")
-			$"../Interactables/Godzilla_O".queue_free()
-		_:
-			print("it must work yes?")

@@ -6,8 +6,9 @@ extends CanvasLayer
 # Signal sending back to Game Manager
 signal dialogue_change_signal
 signal exterior_change_signal
+signal kill_dave_matthews
 
-
+@onready var background: TextureRect = $Balloon/Background
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -142,7 +143,21 @@ func apply_dialogue_line() -> void:
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
 	
+	
+	
 	character_label.visible = not dialogue_line.character.is_empty()
+	character_label.text = tr(dialogue_line.character, "dialogue")
+	var background_path: String = "res://Assets/%s.jpg" % dialogue_line.get_tag_value("image")
+	if FileAccess.file_exists(background_path):
+		background.texture = load(background_path)
+	else:
+		if dialogue_line.get_tag_value("image") == "NONE":
+			background.texture = null
+	if not dialogue_line.get_tag_value("next") == null:
+		next_dialogue = dialogue_line.get_tag_value("next")
+	if not dialogue_line.get_tag_value("kill") == "":
+		kill_dave_matthews.emit(dialogue_line.get_tag_value("kill"))
+		
 	match tr(dialogue_line.character):
 		"Fisher":
 			character_label.text = "[color=#228B22]" + tr(dialogue_line.character, "dialogue") + "[/color]"

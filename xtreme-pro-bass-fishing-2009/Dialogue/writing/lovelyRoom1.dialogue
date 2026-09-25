@@ -11,21 +11,24 @@ The spikes on his back look sharp, but are actually super bendy.
 It makes no sound. But It would be cool if it yelled when I squeezed it. 
 
 
-
+=> END
 ~ goji
+
 This is a pretty cool little statue guy.
 
 Do you want to pick it up?
- - Yes 
-	do GameManager.get_item("goji","item", "Godzilla_O")
+ - Yes [#next=goji_taken]
+	do GameManager.get_item("goji","item") 
 	=> goji_taken
- - No
-[#next=goji_taken]
+ - No [#next=goji_taken]
+	do GameManager.get_item("goji","item")
+	=> goji_taken
+
 => END
 
 ~ goji_taken
-YOU GOT THE GOJI! Put that away quickly before someone sees it and gets jealous! 
-[#next=goji_taken]
+YOU GOT THE GOJI! Put that away quickly before someone sees it and gets jealous![#next=goji_taken][#kill=../Interactables/Godzilla_O]
+
 => END
 
 
